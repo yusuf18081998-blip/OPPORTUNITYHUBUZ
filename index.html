@@ -9,6 +9,10 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f0; color: #1a1a18; min-height: 100vh; }
 
+/* PAGES */
+.page { display: none; padding-bottom: 70px; }
+.page.active { display: block; }
+
 /* HERO */
 .hero { padding: 2rem 1.5rem 1.75rem; background: #fff; border-bottom: 1px solid #e5e5e0; }
 .logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
@@ -18,13 +22,11 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 .site-name span { color: #185FA5; }
 .tagline { font-size: 26px; font-weight: 700; color: #1a1a18; line-height: 1.25; margin-bottom: 0.4rem; }
 .sub { font-size: 14px; color: #666; margin-bottom: 1.25rem; }
-
 .search-bar { display: flex; gap: 8px; }
 .search-bar input { flex: 1; padding: 0 14px; height: 44px; border: 1px solid #d0d0c8; border-radius: 10px; font-size: 14px; background: #fafaf8; color: #1a1a18; outline: none; transition: border-color 0.2s; }
 .search-bar input:focus { border-color: #185FA5; background: #fff; }
 .search-bar button { padding: 0 20px; height: 44px; border-radius: 10px; border: none; background: #185FA5; color: #fff; font-size: 14px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: background 0.15s; }
 .search-bar button:hover { background: #0C447C; }
-
 .stats-row { display: flex; gap: 2rem; margin-top: 1.25rem; flex-wrap: wrap; }
 .stat-num { font-size: 22px; font-weight: 700; color: #185FA5; }
 .stat-label { font-size: 12px; color: #999; margin-top: 1px; }
@@ -45,26 +47,24 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 .ai-tag { font-size: 12px; padding: 4px 11px; border-radius: 20px; background: #fff; border: 1px solid #B5D4F4; color: #185FA5; cursor: pointer; transition: all 0.15s; }
 .ai-tag:hover { background: #185FA5; color: #fff; }
 
-/* NOTIF */
-.notif-banner { margin: 0 1.5rem 0.5rem; padding: 10px 14px; background: #EAF3DE; border: 1px solid #C0DD97; border-radius: 10px; display: flex; align-items: center; gap: 10px; }
+/* NOTIF BANNER */
+.notif-banner { margin: 0.75rem 1.5rem 0; padding: 10px 14px; background: #EAF3DE; border: 1px solid #C0DD97; border-radius: 10px; display: flex; align-items: center; gap: 10px; }
 .notif-banner i { color: #3B6D11; font-size: 17px; }
 .notif-text { font-size: 13px; color: #27500A; flex: 1; }
 .notif-close { background: none; border: none; cursor: pointer; color: #3B6D11; font-size: 18px; line-height: 1; }
 
 /* CARDS */
 .section-title { font-size: 12px; font-weight: 600; color: #999; text-transform: uppercase; letter-spacing: 0.07em; padding: 0 1.5rem; margin: 0.75rem 0 0.25rem; }
-.feed { padding: 0.5rem 1.5rem 5rem; display: flex; flex-direction: column; gap: 12px; }
+.feed { padding: 0.5rem 1.5rem 1rem; display: flex; flex-direction: column; gap: 12px; }
 .card { background: #fff; border: 1px solid #e5e5e0; border-radius: 12px; padding: 1rem 1.25rem; display: flex; gap: 14px; align-items: flex-start; transition: border-color 0.15s, box-shadow 0.15s; }
 .card:hover { border-color: #185FA5; box-shadow: 0 2px 12px rgba(24,95,165,0.08); }
 .card-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .card-icon i { font-size: 22px; }
-
 .ic-hackathon { background: #E6F1FB; } .ic-hackathon i { color: #185FA5; }
 .ic-course   { background: #EAF3DE; } .ic-course i   { color: #3B6D11; }
 .ic-contest  { background: #FAEEDA; } .ic-contest i  { color: #854F0B; }
 .ic-grant    { background: #EEEDFE; } .ic-grant i    { color: #3C3489; }
 .ic-job      { background: #E1F5EE; } .ic-job i      { color: #085041; }
-
 .card-body { flex: 1; min-width: 0; }
 .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 4px; }
 .card-title { font-size: 15px; font-weight: 600; color: #1a1a18; line-height: 1.3; }
@@ -75,7 +75,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 .badge-grant   { background: #EEEDFE; color: #3C3489; }
 .badge-job     { background: #E1F5EE; color: #085041; }
 .badge-free    { background: #EAF3DE; color: #27500A; }
-
 .card-desc { font-size: 13px; color: #555; margin-bottom: 8px; line-height: 1.55; }
 .card-meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
 .meta-item { font-size: 12px; color: #999; display: flex; align-items: center; gap: 4px; }
@@ -89,157 +88,390 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 .save-btn.saved { background: #E6F1FB; border-color: #185FA5; color: #185FA5; }
 
 /* EMPTY STATE */
-.empty { padding: 3rem 1.5rem; text-align: center; color: #999; }
-.empty i { font-size: 40px; display: block; margin-bottom: 12px; }
-.empty p { font-size: 14px; }
+.empty { padding: 3rem 1.5rem; text-align: center; color: #bbb; }
+.empty i { font-size: 44px; display: block; margin-bottom: 12px; }
+.empty p { font-size: 14px; color: #999; }
+
+/* PAGE HEADERS */
+.page-header { padding: 1.25rem 1.5rem; background: #fff; border-bottom: 1px solid #e5e5e0; display: flex; align-items: center; gap: 12px; }
+.page-header h1 { font-size: 20px; font-weight: 700; color: #1a1a18; }
+
+/* SEARCH PAGE */
+.search-page-bar { padding: 1rem 1.5rem; background: #fff; border-bottom: 1px solid #e5e5e0; }
+.search-page-bar input { width: 100%; padding: 0 14px; height: 44px; border: 1px solid #d0d0c8; border-radius: 10px; font-size: 14px; background: #fafaf8; color: #1a1a18; outline: none; transition: border-color 0.2s; }
+.search-page-bar input:focus { border-color: #185FA5; background: #fff; }
+.search-tags { display: flex; gap: 8px; padding: 0.75rem 1.5rem; flex-wrap: wrap; background: #fff; border-bottom: 1px solid #e5e5e0; }
+.search-tag { padding: 6px 14px; border-radius: 20px; border: 1px solid #d0d0c8; font-size: 13px; color: #555; cursor: pointer; background: #fafaf8; transition: all 0.15s; }
+.search-tag:hover { border-color: #185FA5; color: #185FA5; }
+
+/* NOTIFICATION PAGE */
+.notif-list { padding: 1rem 1.5rem; display: flex; flex-direction: column; gap: 10px; }
+.notif-item { background: #fff; border: 1px solid #e5e5e0; border-radius: 12px; padding: 1rem 1.25rem; display: flex; gap: 12px; align-items: flex-start; }
+.notif-item.unread { border-left: 3px solid #185FA5; }
+.notif-dot { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.notif-dot i { font-size: 18px; }
+.nd-blue { background: #E6F1FB; } .nd-blue i { color: #185FA5; }
+.nd-green { background: #EAF3DE; } .nd-green i { color: #3B6D11; }
+.nd-amber { background: #FAEEDA; } .nd-amber i { color: #854F0B; }
+.notif-body { flex: 1; }
+.notif-title { font-size: 14px; font-weight: 600; color: #1a1a18; margin-bottom: 3px; }
+.notif-desc { font-size: 13px; color: #666; line-height: 1.4; }
+.notif-time { font-size: 11px; color: #bbb; margin-top: 4px; }
+.sub-toggle { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; background: #fff; border-bottom: 1px solid #e5e5e0; }
+.sub-toggle-label { font-size: 14px; color: #1a1a18; font-weight: 500; }
+.toggle { width: 44px; height: 24px; border-radius: 12px; background: #185FA5; position: relative; cursor: pointer; transition: background 0.2s; }
+.toggle::after { content: ''; position: absolute; width: 18px; height: 18px; border-radius: 50%; background: #fff; top: 3px; right: 3px; transition: right 0.2s; }
+.toggle.off { background: #d0d0c8; }
+.toggle.off::after { right: 23px; }
+
+/* PROFILE PAGE */
+.profile-hero { padding: 2rem 1.5rem; background: #fff; border-bottom: 1px solid #e5e5e0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.avatar { width: 72px; height: 72px; border-radius: 50%; background: #185FA5; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; color: #fff; }
+.profile-name { font-size: 20px; font-weight: 700; color: #1a1a18; }
+.profile-sub { font-size: 13px; color: #999; }
+.profile-stats { display: flex; gap: 2rem; margin-top: 4px; }
+.pstat { text-align: center; }
+.pstat-num { font-size: 18px; font-weight: 700; color: #185FA5; }
+.pstat-label { font-size: 11px; color: #999; }
+.menu-list { padding: 1rem 1.5rem; display: flex; flex-direction: column; gap: 8px; }
+.menu-item { background: #fff; border: 1px solid #e5e5e0; border-radius: 12px; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: border-color 0.15s; }
+.menu-item:hover { border-color: #185FA5; }
+.menu-icon { width: 36px; height: 36px; border-radius: 9px; background: #E6F1FB; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.menu-icon i { font-size: 18px; color: #185FA5; }
+.menu-label { flex: 1; font-size: 14px; font-weight: 500; color: #1a1a18; }
+.menu-arrow { color: #ccc; font-size: 18px; }
 
 /* BOTTOM NAV */
 .nav-bottom { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e5e5e0; display: flex; justify-content: space-around; padding: 8px 0 max(4px, env(safe-area-inset-bottom)); z-index: 100; }
-.nav-item { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 16px; cursor: pointer; color: #aaa; transition: color 0.15s; }
+.nav-item { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 16px; cursor: pointer; color: #aaa; transition: color 0.15s; user-select: none; }
 .nav-item.active { color: #185FA5; }
 .nav-item i { font-size: 23px; }
 .nav-item span { font-size: 10px; font-weight: 500; }
+.nav-badge { position: relative; }
+.nav-badge::after { content: '3'; position: absolute; top: -4px; right: -6px; background: #E24B4A; color: #fff; font-size: 9px; font-weight: 700; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; line-height: 16px; text-align: center; }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="logo-row">
-    <div class="logo-badge"><i class="ti ti-bolt"></i></div>
-    <div class="site-name">Opportunity<span>Hub</span> UZ</div>
+<!-- ======== PAGE 1: ASOSIY ======== -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="logo-row">
+      <div class="logo-badge"><i class="ti ti-bolt"></i></div>
+      <div class="site-name">Opportunity<span>Hub</span> UZ</div>
+    </div>
+    <div class="tagline">Barcha imkoniyatlar —<br>bir joyda</div>
+    <div class="sub">Bepul kurslar, hackathonlar, tanlovlar va grantlar</div>
+    <div class="search-bar">
+      <input type="text" id="homeSearch" placeholder="Kurs, hackathon, grant..." />
+      <button onclick="goSearchWith()"><i class="ti ti-search"></i> Qidirish</button>
+    </div>
+    <div class="stats-row">
+      <div><div class="stat-num">247</div><div class="stat-label">Faol imkoniyat</div></div>
+      <div><div class="stat-num">12,400+</div><div class="stat-label">Foydalanuvchi</div></div>
+      <div><div class="stat-num">38</div><div class="stat-label">Yangi bugun</div></div>
+    </div>
   </div>
-  <div class="tagline">Barcha imkoniyatlar —<br>bir joyda</div>
-  <div class="sub">Bepul kurslar, hackathonlar, tanlovlar va grantlar — o'z vaqtida</div>
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Kurs, hackathon, grant qidiring..." />
-    <button onclick="doSearch()"><i class="ti ti-search"></i> Qidirish</button>
+
+  <div class="notif-banner" id="notifBanner">
+    <i class="ti ti-bell"></i>
+    <span class="notif-text">Yangi: AI Youth Hackathon uchun ariza qabul boshlanди! ⚠️ 2 kun qoldi</span>
+    <button class="notif-close" onclick="this.parentElement.style.display='none'"><i class="ti ti-x"></i></button>
   </div>
-  <div class="stats-row">
-    <div><div class="stat-num" id="sCount">247</div><div class="stat-label">Faol imkoniyat</div></div>
-    <div><div class="stat-num">12,400+</div><div class="stat-label">Foydalanuvchi</div></div>
-    <div><div class="stat-num">38</div><div class="stat-label">Yangi bugun</div></div>
+
+  <div class="ai-bar" style="margin-top:1rem">
+    <div class="ai-icon"><i class="ti ti-brain"></i></div>
+    <div>
+      <div class="ai-label">AI TAVSIYA</div>
+      <div class="ai-text">Siz uchun: <strong>3 ta hackathon</strong> va <strong>2 ta bepul kurs</strong> topildi. Muddatlar yaqinlashmoqda!</div>
+      <div class="ai-tags">
+        <span class="ai-tag" onclick="goPage('search','hackathon')">Hackathonlar</span>
+        <span class="ai-tag" onclick="goPage('search','course')">Bepul kurslar</span>
+        <span class="ai-tag" onclick="goPage('search','grant')">Grantlar</span>
+      </div>
+    </div>
   </div>
+
+  <div class="section-title">🔥 Muddati yaqin</div>
+  <div class="feed" id="homeFeedHot"></div>
+  <div class="section-title">✨ Barcha imkoniyatlar</div>
+  <div class="feed" id="homeFeedAll"></div>
 </div>
 
-<!-- NOTIFICATION -->
-<div class="notif-banner" id="notifBanner" style="margin-top:1rem">
-  <i class="ti ti-bell"></i>
-  <span class="notif-text">Bildirishnomalar yoqildi! Yangi imkoniyatlar haqida darhol xabar olasiz.</span>
-  <button class="notif-close" onclick="document.getElementById('notifBanner').style.display='none'"><i class="ti ti-x"></i></button>
+<!-- ======== PAGE 2: QIDIRISH ======== -->
+<div id="page-search" class="page">
+  <div class="page-header">
+    <i class="ti ti-search" style="font-size:22px;color:#185FA5"></i>
+    <h1>Qidirish</h1>
+  </div>
+  <div class="search-page-bar">
+    <input type="text" id="searchPageInput" placeholder="Kurs, hackathon, grant, kompaniya..." oninput="doPageSearch()" />
+  </div>
+  <div class="filters" id="searchFilters">
+    <span class="filter-chip active" onclick="setFilter('all',this)"><i class="ti ti-apps" style="font-size:13px;margin-right:3px"></i> Barchasi</span>
+    <span class="filter-chip" onclick="setFilter('hackathon',this)"><i class="ti ti-code" style="font-size:13px;margin-right:3px"></i> Hackathon</span>
+    <span class="filter-chip" onclick="setFilter('course',this)"><i class="ti ti-book" style="font-size:13px;margin-right:3px"></i> Kurs</span>
+    <span class="filter-chip" onclick="setFilter('contest',this)"><i class="ti ti-trophy" style="font-size:13px;margin-right:3px"></i> Tanlov</span>
+    <span class="filter-chip" onclick="setFilter('grant',this)"><i class="ti ti-moneybag" style="font-size:13px;margin-right:3px"></i> Grant</span>
+    <span class="filter-chip" onclick="setFilter('job',this)"><i class="ti ti-briefcase" style="font-size:13px;margin-right:3px"></i> Ish/Stajyorlik</span>
+  </div>
+  <div class="section-title" id="searchCount">Barcha imkoniyatlar</div>
+  <div class="feed" id="searchFeed"></div>
 </div>
 
-<!-- FILTERS -->
-<div class="filters">
-  <span class="filter-chip active" onclick="filterCards('all',this)"><i class="ti ti-apps" style="font-size:13px;margin-right:3px"></i> Barchasi</span>
-  <span class="filter-chip" onclick="filterCards('hackathon',this)"><i class="ti ti-code" style="font-size:13px;margin-right:3px"></i> Hackathon</span>
-  <span class="filter-chip" onclick="filterCards('course',this)"><i class="ti ti-book" style="font-size:13px;margin-right:3px"></i> Kurs</span>
-  <span class="filter-chip" onclick="filterCards('contest',this)"><i class="ti ti-trophy" style="font-size:13px;margin-right:3px"></i> Tanlov</span>
-  <span class="filter-chip" onclick="filterCards('grant',this)"><i class="ti ti-moneybag" style="font-size:13px;margin-right:3px"></i> Grant</span>
-  <span class="filter-chip" onclick="filterCards('job',this)"><i class="ti ti-briefcase" style="font-size:13px;margin-right:3px"></i> Ish/Stajyorlik</span>
+<!-- ======== PAGE 3: SAQLANGAN ======== -->
+<div id="page-saved" class="page">
+  <div class="page-header">
+    <i class="ti ti-bookmark" style="font-size:22px;color:#185FA5"></i>
+    <h1>Saqlangan</h1>
+  </div>
+  <div class="feed" id="savedFeed"></div>
 </div>
 
-<!-- AI BAR -->
-<div class="ai-bar">
-  <div class="ai-icon"><i class="ti ti-brain"></i></div>
-  <div>
-    <div class="ai-label">AI TAVSIYA</div>
-    <div class="ai-text">Siz uchun eng mos imkoniyatlar: <strong>IT sohasida 3 ta hackathon</strong> va <strong>2 ta bepul kurs</strong> topildi. Ariza muddati yaqinlashmoqda!</div>
-    <div class="ai-tags">
-      <span class="ai-tag" onclick="filterCards('hackathon',null)">Hackathonlar</span>
-      <span class="ai-tag" onclick="filterCards('course',null)">Bepul kurslar</span>
-      <span class="ai-tag" onclick="filterCards('grant',null)">Grantlar</span>
+<!-- ======== PAGE 4: BILDIRISHNOMA ======== -->
+<div id="page-notif" class="page">
+  <div class="page-header">
+    <i class="ti ti-bell" style="font-size:22px;color:#185FA5"></i>
+    <h1>Bildirishnomalar</h1>
+  </div>
+  <div class="sub-toggle">
+    <span class="sub-toggle-label"><i class="ti ti-bell" style="font-size:15px;margin-right:6px;color:#185FA5"></i>Push bildirishnomalar</span>
+    <div class="toggle" onclick="this.classList.toggle('off')"></div>
+  </div>
+  <div class="notif-list">
+    <div class="notif-item unread">
+      <div class="notif-dot nd-blue"><i class="ti ti-bolt"></i></div>
+      <div class="notif-body">
+        <div class="notif-title">AI Youth Hackathon — UNDP</div>
+        <div class="notif-desc">Siz kutgan hackathon uchun ariza qabul boshlandi! Muddati: 2 kun qoldi.</div>
+        <div class="notif-time">10 daqiqa oldin</div>
+      </div>
+    </div>
+    <div class="notif-item unread">
+      <div class="notif-dot nd-green"><i class="ti ti-book"></i></div>
+      <div class="notif-body">
+        <div class="notif-title">Yangi kurs qo'shildi</div>
+        <div class="notif-desc">Google tomonidan bepul Machine Learning kursi platformaga qo'shildi.</div>
+        <div class="notif-time">2 soat oldin</div>
+      </div>
+    </div>
+    <div class="notif-item unread">
+      <div class="notif-dot nd-amber"><i class="ti ti-clock"></i></div>
+      <div class="notif-body">
+        <div class="notif-title">Muddat eslatmasi ⚠️</div>
+        <div class="notif-desc">Google Code Jam 2026 arizasi — 5 kun qoldi. Ulgurmang!</div>
+        <div class="notif-time">5 soat oldin</div>
+      </div>
+    </div>
+    <div class="notif-item">
+      <div class="notif-dot nd-blue"><i class="ti ti-star"></i></div>
+      <div class="notif-body">
+        <div class="notif-title">DAAD Stipendiyasi yangilandi</div>
+        <div class="notif-desc">Germaniya stipendiyasi uchun yangi talablar e'lon qilindi. Ko'rib chiqing.</div>
+        <div class="notif-time">Kecha</div>
+      </div>
+    </div>
+    <div class="notif-item">
+      <div class="notif-dot nd-green"><i class="ti ti-award"></i></div>
+      <div class="notif-body">
+        <div class="notif-title">Prezident yoshlar granti</div>
+        <div class="notif-desc">100 mln so'mgacha grant uchun ariza qabul boshlandi.</div>
+        <div class="notif-time">2 kun oldin</div>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="section-title">Tezkor imkoniyatlar</div>
-<div class="feed" id="cardFeed"></div>
+<!-- ======== PAGE 5: PROFIL ======== -->
+<div id="page-profile" class="page">
+  <div class="profile-hero">
+    <div class="avatar">Y</div>
+    <div class="profile-name">Yoshlar Foydalanuvchi</div>
+    <div class="profile-sub">Toshkent, O'zbekiston</div>
+    <div class="profile-stats">
+      <div class="pstat"><div class="pstat-num" id="pSaved">0</div><div class="pstat-label">Saqlangan</div></div>
+      <div class="pstat"><div class="pstat-num">5</div><div class="pstat-label">Ko'rilgan</div></div>
+      <div class="pstat"><div class="pstat-num">3</div><div class="pstat-label">Obuna</div></div>
+    </div>
+  </div>
+  <div class="menu-list">
+    <div class="menu-item" onclick="goPage('saved')">
+      <div class="menu-icon"><i class="ti ti-bookmark"></i></div>
+      <div class="menu-label">Saqlangan imkoniyatlar</div>
+      <i class="ti ti-chevron-right menu-arrow"></i>
+    </div>
+    <div class="menu-item" onclick="goPage('notif')">
+      <div class="menu-icon"><i class="ti ti-bell"></i></div>
+      <div class="menu-label">Bildirishnoma sozlamalari</div>
+      <i class="ti ti-chevron-right menu-arrow"></i>
+    </div>
+    <div class="menu-item">
+      <div class="menu-icon"><i class="ti ti-filter"></i></div>
+      <div class="menu-label">Qiziqishlarim</div>
+      <i class="ti ti-chevron-right menu-arrow"></i>
+    </div>
+    <div class="menu-item">
+      <div class="menu-icon"><i class="ti ti-language"></i></div>
+      <div class="menu-label">Til: O'zbek</div>
+      <i class="ti ti-chevron-right menu-arrow"></i>
+    </div>
+    <div class="menu-item">
+      <div class="menu-icon" style="background:#FCEBEB"><i class="ti ti-logout" style="color:#791F1F"></i></div>
+      <div class="menu-label" style="color:#791F1F">Chiqish</div>
+      <i class="ti ti-chevron-right menu-arrow"></i>
+    </div>
+  </div>
+</div>
 
-<!-- BOTTOM NAV -->
+<!-- ======== BOTTOM NAV ======== -->
 <div class="nav-bottom">
-  <div class="nav-item active"><i class="ti ti-home"></i><span>Asosiy</span></div>
-  <div class="nav-item"><i class="ti ti-search"></i><span>Qidirish</span></div>
-  <div class="nav-item"><i class="ti ti-bookmark"></i><span>Saqlangan</span></div>
-  <div class="nav-item"><i class="ti ti-bell"></i><span>Bildirishnoma</span></div>
-  <div class="nav-item"><i class="ti ti-user"></i><span>Profil</span></div>
+  <div class="nav-item active" id="nav-home" onclick="goPage('home')">
+    <i class="ti ti-home"></i><span>Asosiy</span>
+  </div>
+  <div class="nav-item" id="nav-search" onclick="goPage('search')">
+    <i class="ti ti-search"></i><span>Qidirish</span>
+  </div>
+  <div class="nav-item" id="nav-saved" onclick="goPage('saved')">
+    <i class="ti ti-bookmark"></i><span>Saqlangan</span>
+  </div>
+  <div class="nav-item" id="nav-notif" onclick="goPage('notif')">
+    <div class="nav-badge"><i class="ti ti-bell"></i></div><span>Bildirishnoma</span>
+  </div>
+  <div class="nav-item" id="nav-profile" onclick="goPage('profile')">
+    <i class="ti ti-user"></i><span>Profil</span>
+  </div>
 </div>
 
 <script>
 const DATA = [
-  { id:1, type:'hackathon', title:'UzHack 2026 — Milliy Hackathon', desc:'O\'zbekiston yoshlari uchun eng katta hackathon. Sovrin jamg\'armasi: 50,000,000 so\'m. Barcha yo\'nalishlar: AI, FinTech, EdTech.', org:'IT Park Uzbekistan', loc:'Toshkent / Online', deadline:'3 kun qoldi', hot:true, free:true, icon:'ti-code', iconClass:'ic-hackathon', badge:'Hackathon', badgeClass:'badge-hack' },
+  { id:1, type:'hackathon', title:'UzHack 2026 — Milliy Hackathon', desc:'O\'zbekiston yoshlari uchun eng katta hackathon. Sovrin: 50,000,000 so\'m. Barcha yo\'nalishlar: AI, FinTech, EdTech.', org:'IT Park Uzbekistan', loc:'Toshkent / Online', deadline:'3 kun qoldi', hot:true, free:true, icon:'ti-code', iconClass:'ic-hackathon', badge:'Hackathon', badgeClass:'badge-hack' },
   { id:2, type:'course', title:'CS50x — Harvard bepul kursi', desc:'Kompyuter fanlari asoslari. Sertifikat bilan. O\'zbek tilidagi mentorlar mavjud. Har oy yangi to\'lqin boshlanadi.', org:'Harvard / edX', loc:'Online', deadline:'12 kun qoldi', hot:false, free:true, icon:'ti-book', iconClass:'ic-course', badge:'Bepul Kurs', badgeClass:'badge-course' },
-  { id:3, type:'grant', title:'DAAD Stipendiyasi — Germaniya', desc:'Bakalavriat va magistratura o\'qish uchun to\'liq grant. Yashash harajatlari va uchish xarajatlari to\'liq qoplangan.', org:'DAAD', loc:'Germaniya', deadline:'18 kun qoldi', hot:false, free:true, icon:'ti-star', iconClass:'ic-grant', badge:'Grant', badgeClass:'badge-grant' },
-  { id:4, type:'contest', title:'Google Code Jam 2026', desc:'Dunyo miqyosidagi dasturlash musobaqasi. $15,000 grand-prize. Barcha yoshlar uchun ochiq, ro\'yxatdan o\'tish bepul.', org:'Google', loc:'Online', deadline:'5 kun qoldi', hot:true, free:true, icon:'ti-trophy', iconClass:'ic-contest', badge:'Tanlov', badgeClass:'badge-contest' },
-  { id:5, type:'job', title:'Frontend Intern — Uzum Market', desc:'3 oylik to\'lov qilinadigan stajyorlik. React.js bilan ishlash tajribasi talab etilmaydi. Mentorlik va to\'liq asbob-uskunalar bilan.', org:'Uzum Market', loc:'Toshkent', deadline:'7 kun qoldi', hot:false, free:false, icon:'ti-briefcase', iconClass:'ic-job', badge:'Stajyorlik', badgeClass:'badge-job' },
-  { id:6, type:'hackathon', title:'AI Youth Hackathon — UNDP', desc:'Sun\'iy intellekt yechimlar orqali ijtimoiy muammolarni hal qilish. $5,000 sovrin. Jamoaviy ishtirok (2-4 kishi).', org:'UNDP Uzbekistan', loc:'Toshkent', deadline:'2 kun qoldi', hot:true, free:true, icon:'ti-robot', iconClass:'ic-hackathon', badge:'Hackathon', badgeClass:'badge-hack' },
-  { id:7, type:'course', title:'Python bilan ma\'lumotlar tahlili', desc:'Coursera\'da Yandex va Google tomonidan bepul taqdim etilgan kurs. Amaliy loyihalar va sertifikat bilan yakunlanadi.', org:'Yandex / Coursera', loc:'Online', deadline:'Doimiy ochiq', hot:false, free:true, icon:'ti-chart-bar', iconClass:'ic-course', badge:'Bepul Kurs', badgeClass:'badge-course' },
-  { id:8, type:'grant', title:'Prezident yoshlar granti', desc:'Startaplar va ijodiy loyihalar uchun 100 million so\'mgacha grant. 18-35 yoshdagi O\'zbekiston fuqarolari uchun.', org:'Yoshlar Agentligi', loc:'O\'zbekiston', deadline:'25 kun qoldi', hot:false, free:true, icon:'ti-award', iconClass:'ic-grant', badge:'Grant', badgeClass:'badge-grant' },
+  { id:3, type:'grant', title:'DAAD Stipendiyasi — Germaniya', desc:'Bakalavriat va magistratura uchun to\'liq grant. Yashash va uchish harajatlari qoplangan.', org:'DAAD', loc:'Germaniya', deadline:'18 kun qoldi', hot:false, free:true, icon:'ti-star', iconClass:'ic-grant', badge:'Grant', badgeClass:'badge-grant' },
+  { id:4, type:'contest', title:'Google Code Jam 2026', desc:'Dunyo miqyosidagi dasturlash musobaqasi. Grand-prize: $15,000. Barcha yoshlar uchun ochiq.', org:'Google', loc:'Online', deadline:'5 kun qoldi', hot:true, free:true, icon:'ti-trophy', iconClass:'ic-contest', badge:'Tanlov', badgeClass:'badge-contest' },
+  { id:5, type:'job', title:'Frontend Intern — Uzum Market', desc:'3 oylik to\'lov qilinadigan stajyorlik. React.js tajribasi shart emas. Mentorlik bilan.', org:'Uzum Market', loc:'Toshkent', deadline:'7 kun qoldi', hot:false, free:false, icon:'ti-briefcase', iconClass:'ic-job', badge:'Stajyorlik', badgeClass:'badge-job' },
+  { id:6, type:'hackathon', title:'AI Youth Hackathon — UNDP', desc:'AI orqali ijtimoiy muammolarni hal qilish. Sovrin: $5,000. Jamoaviy ishtirok (2-4 kishi).', org:'UNDP Uzbekistan', loc:'Toshkent', deadline:'2 kun qoldi', hot:true, free:true, icon:'ti-robot', iconClass:'ic-hackathon', badge:'Hackathon', badgeClass:'badge-hack' },
+  { id:7, type:'course', title:'Python bilan ma\'lumotlar tahlili', desc:'Yandex va Google tomonidan bepul kurs. Sertifikat bilan yakunlanadi.', org:'Yandex / Coursera', loc:'Online', deadline:'Doimiy ochiq', hot:false, free:true, icon:'ti-chart-bar', iconClass:'ic-course', badge:'Bepul Kurs', badgeClass:'badge-course' },
+  { id:8, type:'grant', title:'Prezident yoshlar granti', desc:'Startaplar uchun 100 mln so\'mgacha grant. 18-35 yoshdagi fuqarolar uchun.', org:'Yoshlar Agentligi', loc:'O\'zbekiston', deadline:'25 kun qoldi', hot:false, free:true, icon:'ti-award', iconClass:'ic-grant', badge:'Grant', badgeClass:'badge-grant' },
 ];
 
 let saved = new Set();
-let currentFilter = 'all';
+let searchFilter = 'all';
 let searchQuery = '';
 
-function renderCards() {
-  const feed = document.getElementById('cardFeed');
+// ---- NAVIGATION ----
+function goPage(page, filterType) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  document.getElementById('nav-' + page).classList.add('active');
+  window.scrollTo(0, 0);
+
+  if (page === 'search') {
+    if (filterType) {
+      searchFilter = filterType;
+      document.querySelectorAll('#searchFilters .filter-chip').forEach(c => c.classList.remove('active'));
+      const chips = document.querySelectorAll('#searchFilters .filter-chip');
+      const map = ['all','hackathon','course','contest','grant','job'];
+      const idx = map.indexOf(filterType);
+      if (idx >= 0) chips[idx].classList.add('active');
+    }
+    renderSearchFeed();
+  }
+  if (page === 'saved') renderSavedFeed();
+  if (page === 'profile') document.getElementById('pSaved').textContent = saved.size;
+}
+
+function goSearchWith() {
+  const q = document.getElementById('homeSearch').value;
+  document.getElementById('searchPageInput').value = q;
+  searchQuery = q.toLowerCase().trim();
+  goPage('search');
+}
+
+// ---- CARD HTML ----
+function cardHTML(d) {
+  const isSaved = saved.has(d.id);
+  return `<div class="card">
+    <div class="card-icon ${d.iconClass}"><i class="ti ${d.icon}"></i></div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-title">${d.title}</div>
+        <span class="badge ${d.badgeClass}">${d.badge}</span>
+      </div>
+      <div class="card-desc">${d.desc}</div>
+      <div class="card-meta">
+        <span class="meta-item"><i class="ti ti-building"></i>${d.org}</span>
+        <span class="meta-item"><i class="ti ti-map-pin"></i>${d.loc}</span>
+        ${d.free ? '<span class="badge badge-free">Bepul</span>' : ''}
+      </div>
+      <div class="card-footer">
+        <span class="deadline-pill ${d.hot ? 'deadline-hot' : 'deadline-ok'}"><i class="ti ti-clock"></i>${d.deadline}</span>
+        <button class="save-btn ${isSaved ? 'saved' : ''}" onclick="toggleSave(${d.id}, this)">
+          <i class="ti ${isSaved ? 'ti-bookmark-filled' : 'ti-bookmark'}"></i>
+          ${isSaved ? 'Saqlangan' : 'Saqlash'}
+        </button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function emptyHTML(text) {
+  return `<div class="empty"><i class="ti ti-inbox"></i><p>${text}</p></div>`;
+}
+
+// ---- HOME ----
+function renderHome() {
+  const hot = DATA.filter(d => d.hot);
+  const all = DATA.filter(d => !d.hot);
+  document.getElementById('homeFeedHot').innerHTML = hot.map(cardHTML).join('');
+  document.getElementById('homeFeedAll').innerHTML = all.map(cardHTML).join('');
+}
+
+// ---- SEARCH ----
+function setFilter(type, el) {
+  searchFilter = type;
+  document.querySelectorAll('#searchFilters .filter-chip').forEach(c => c.classList.remove('active'));
+  if (el) el.classList.add('active');
+  renderSearchFeed();
+}
+
+function doPageSearch() {
+  searchQuery = document.getElementById('searchPageInput').value.toLowerCase().trim();
+  renderSearchFeed();
+}
+
+function renderSearchFeed() {
   const items = DATA.filter(d => {
-    const mf = currentFilter === 'all' || d.type === currentFilter;
+    const mf = searchFilter === 'all' || d.type === searchFilter;
     const ms = !searchQuery || [d.title, d.desc, d.org].join(' ').toLowerCase().includes(searchQuery);
     return mf && ms;
   });
-  document.getElementById('sCount').textContent = items.length * 30 + 7;
-  if (!items.length) {
-    feed.innerHTML = '<div class="empty"><i class="ti ti-search-off"></i><p>Natija topilmadi. Qidiruvni o\'zgartiring.</p></div>';
-    return;
-  }
-  feed.innerHTML = items.map(d => `
-    <div class="card">
-      <div class="card-icon ${d.iconClass}"><i class="ti ${d.icon}"></i></div>
-      <div class="card-body">
-        <div class="card-top">
-          <div class="card-title">${d.title}</div>
-          <span class="badge ${d.badgeClass}">${d.badge}</span>
-        </div>
-        <div class="card-desc">${d.desc}</div>
-        <div class="card-meta">
-          <span class="meta-item"><i class="ti ti-building"></i>${d.org}</span>
-          <span class="meta-item"><i class="ti ti-map-pin"></i>${d.loc}</span>
-          ${d.free ? '<span class="badge badge-free">Bepul</span>' : ''}
-        </div>
-        <div class="card-footer">
-          <span class="deadline-pill ${d.hot ? 'deadline-hot' : 'deadline-ok'}"><i class="ti ti-clock"></i>${d.deadline}</span>
-          <button class="save-btn ${saved.has(d.id)?'saved':''}" onclick="toggleSave(${d.id},this)">
-            <i class="ti ${saved.has(d.id)?'ti-bookmark-filled':'ti-bookmark'}"></i>
-            ${saved.has(d.id)?'Saqlangan':'Saqlash'}
-          </button>
-        </div>
-      </div>
-    </div>
-  `).join('');
+  document.getElementById('searchCount').textContent = items.length + ' ta imkoniyat topildi';
+  document.getElementById('searchFeed').innerHTML = items.length
+    ? items.map(cardHTML).join('')
+    : emptyHTML('Natija topilmadi. Qidiruvni o\'zgartiring.');
+}
+
+// ---- SAVED ----
+function renderSavedFeed() {
+  const items = DATA.filter(d => saved.has(d.id));
+  document.getElementById('savedFeed').innerHTML = items.length
+    ? items.map(cardHTML).join('')
+    : emptyHTML('Hali hech narsa saqlanmagan. Kartochkada 🔖 Saqlash tugmasini bosing.');
 }
 
 function toggleSave(id, btn) {
   saved.has(id) ? saved.delete(id) : saved.add(id);
-  btn.className = 'save-btn' + (saved.has(id)?' saved':'');
-  btn.innerHTML = `<i class="ti ${saved.has(id)?'ti-bookmark-filled':'ti-bookmark'}"></i> ${saved.has(id)?'Saqlangan':'Saqlash'}`;
+  const isSaved = saved.has(id);
+  btn.className = 'save-btn' + (isSaved ? ' saved' : '');
+  btn.innerHTML = `<i class="ti ${isSaved ? 'ti-bookmark-filled' : 'ti-bookmark'}"></i> ${isSaved ? 'Saqlangan' : 'Saqlash'}`;
+  // Refresh saved page if open
+  if (document.getElementById('page-saved').classList.contains('active')) renderSavedFeed();
 }
 
-function filterCards(type, el) {
-  currentFilter = type;
-  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
-  if (el) el.classList.add('active');
-  renderCards();
-}
-
-function doSearch() {
-  searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
-  renderCards();
-}
-
-document.getElementById('searchInput').addEventListener('keydown', e => { if(e.key==='Enter') doSearch(); });
-
-renderCards();
+// ---- INIT ----
+renderHome();
+renderSearchFeed();
 </script>
 </body>
 </html>
