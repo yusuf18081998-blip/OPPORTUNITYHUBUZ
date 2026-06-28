@@ -6,189 +6,273 @@
 <title>OpportunityHub UZ</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f0; color: #1a1a18; min-height: 100vh; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f0;color:#1a1a18;min-height:100vh}
 
 /* PAGES */
-.page { display: none; padding-bottom: 70px; }
-.page.active { display: block; }
+.page{display:none;padding-bottom:74px;min-height:100vh}
+.page.active{display:block}
+
+/* LOGIN PAGE */
+.login-page{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:2rem;background:linear-gradient(135deg,#0f2a4a 0%,#185FA5 50%,#1a8abf 100%)}
+.login-logo{width:64px;height:64px;border-radius:18px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;backdrop-filter:blur(10px)}
+.login-logo i{color:#fff;font-size:32px}
+.login-title{font-size:28px;font-weight:700;color:#fff;text-align:center;margin-bottom:0.5rem}
+.login-sub{font-size:15px;color:rgba(255,255,255,0.7);text-align:center;margin-bottom:2.5rem;line-height:1.5}
+.login-card{background:#fff;border-radius:20px;padding:2rem;width:100%;max-width:360px;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.login-card h2{font-size:18px;font-weight:700;color:#1a1a18;margin-bottom:0.25rem}
+.login-card p{font-size:13px;color:#999;margin-bottom:1.5rem}
+.social-btn{display:flex;align-items:center;gap:12px;width:100%;padding:12px 16px;border-radius:12px;border:1.5px solid #e5e5e0;background:#fff;font-size:14px;font-weight:500;color:#1a1a18;cursor:pointer;margin-bottom:10px;transition:all 0.15s}
+.social-btn:hover{border-color:#185FA5;background:#f5f9ff}
+.social-btn img{width:22px;height:22px}
+.social-btn.github{background:#1a1a18;color:#fff;border-color:#1a1a18}
+.social-btn.github:hover{background:#333}
+.social-btn.github i{font-size:22px;color:#fff}
+.divider{display:flex;align-items:center;gap:10px;margin:1rem 0}
+.divider hr{flex:1;border:none;border-top:1px solid #e5e5e0}
+.divider span{font-size:12px;color:#bbb}
+.email-input{width:100%;padding:11px 14px;border:1.5px solid #e5e5e0;border-radius:10px;font-size:14px;color:#1a1a18;outline:none;margin-bottom:8px;transition:border-color 0.2s}
+.email-input:focus{border-color:#185FA5}
+.login-btn{width:100%;padding:12px;border-radius:10px;border:none;background:#185FA5;color:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.15s}
+.login-btn:hover{background:#0C447C}
+.skip-btn{width:100%;padding:10px;border-radius:10px;border:1.5px solid #e5e5e0;background:#fff;color:#666;font-size:13px;cursor:pointer;margin-top:8px;transition:all 0.15s}
+.skip-btn:hover{border-color:#185FA5;color:#185FA5}
 
 /* HERO */
-.hero { padding: 2rem 1.5rem 1.75rem; background: #fff; border-bottom: 1px solid #e5e5e0; }
-.logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
-.logo-badge { width: 38px; height: 38px; border-radius: 10px; background: #185FA5; display: flex; align-items: center; justify-content: center; }
-.logo-badge i { color: #fff; font-size: 20px; }
-.site-name { font-size: 19px; font-weight: 600; color: #1a1a18; }
-.site-name span { color: #185FA5; }
-.tagline { font-size: 26px; font-weight: 700; color: #1a1a18; line-height: 1.25; margin-bottom: 0.4rem; }
-.sub { font-size: 14px; color: #666; margin-bottom: 1.25rem; }
-.search-bar { display: flex; gap: 8px; }
-.search-bar input { flex: 1; padding: 0 14px; height: 44px; border: 1px solid #d0d0c8; border-radius: 10px; font-size: 14px; background: #fafaf8; color: #1a1a18; outline: none; transition: border-color 0.2s; }
-.search-bar input:focus { border-color: #185FA5; background: #fff; }
-.search-bar button { padding: 0 20px; height: 44px; border-radius: 10px; border: none; background: #185FA5; color: #fff; font-size: 14px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: background 0.15s; }
-.search-bar button:hover { background: #0C447C; }
-.tg-btn { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; padding: 0 20px; height: 44px; border-radius: 10px; background: #229ED9; color: #fff; font-size: 14px; font-weight: 500; text-decoration: none; transition: background 0.15s; }
-.tg-btn:hover { background: #1a8abf; }
-.tg-btn i { font-size: 20px; }
-.stats-row { display: flex; gap: 2rem; margin-top: 1.25rem; flex-wrap: wrap; }
-.stat-num { font-size: 22px; font-weight: 700; color: #185FA5; }
-.stat-label { font-size: 12px; color: #999; margin-top: 1px; }
+.hero{padding:0;background:#fff;border-bottom:1px solid #e5e5e0}
+.hero-img{width:100%;height:180px;object-fit:cover;display:block}
+.hero-img-placeholder{width:100%;height:180px;background:linear-gradient(135deg,#0f2a4a 0%,#185FA5 60%,#1a8abf 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.hero-img-placeholder i{font-size:40px;color:rgba(255,255,255,0.6)}
+.hero-img-placeholder span{font-size:13px;color:rgba(255,255,255,0.5)}
+.hero-content{padding:1.25rem 1.5rem 1.5rem}
+.logo-row{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+.logo-badge{width:36px;height:36px;border-radius:9px;background:#185FA5;display:flex;align-items:center;justify-content:center}
+.logo-badge i{color:#fff;font-size:18px}
+.site-name{font-size:17px;font-weight:600;color:#1a1a18}
+.site-name span{color:#185FA5}
+.tagline{font-size:22px;font-weight:700;color:#1a1a18;line-height:1.25;margin-bottom:0.35rem}
+.sub{font-size:13px;color:#666;margin-bottom:1.1rem}
+.search-bar{display:flex;gap:8px;margin-bottom:10px}
+.search-bar input{flex:1;padding:0 13px;height:42px;border:1px solid #d0d0c8;border-radius:10px;font-size:14px;background:#fafaf8;color:#1a1a18;outline:none;transition:border-color 0.2s}
+.search-bar input:focus{border-color:#185FA5;background:#fff}
+.search-bar button{padding:0 16px;height:42px;border-radius:10px;border:none;background:#185FA5;color:#fff;font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:5px}
+.search-bar button:hover{background:#0C447C}
+.tg-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:0 16px;height:42px;border-radius:10px;background:#229ED9;color:#fff;font-size:13px;font-weight:500;text-decoration:none;transition:background 0.15s}
+.tg-btn:hover{background:#1a8abf}
+.tg-btn i{font-size:18px;pointer-events:none}
+.stats-row{display:flex;gap:1.5rem;margin-top:1.1rem;flex-wrap:wrap}
+.stat-num{font-size:20px;font-weight:700;color:#185FA5}
+.stat-label{font-size:11px;color:#999;margin-top:1px}
 
 /* FILTERS */
-.filters { display: flex; gap: 8px; padding: 0.9rem 1.5rem; overflow-x: auto; border-bottom: 1px solid #e5e5e0; background: #fff; flex-wrap: wrap; }
-.filter-chip { padding: 7px 15px; border-radius: 20px; border: 1px solid #d0d0c8; font-size: 13px; color: #555; cursor: pointer; white-space: nowrap; background: #fafaf8; transition: all 0.15s; user-select: none; }
-.filter-chip i { pointer-events: none; }
-.filter-chip.active { background: #185FA5; color: #fff; border-color: #185FA5; }
-.filter-chip:hover:not(.active) { border-color: #185FA5; color: #185FA5; }
+.filters{display:flex;gap:7px;padding:0.8rem 1.5rem;overflow-x:auto;border-bottom:1px solid #e5e5e0;background:#fff;flex-wrap:nowrap}
+.filters::-webkit-scrollbar{display:none}
+.filter-chip{padding:6px 13px;border-radius:20px;border:1px solid #d0d0c8;font-size:13px;color:#555;cursor:pointer;white-space:nowrap;background:#fafaf8;transition:all 0.15s;user-select:none;flex-shrink:0}
+.filter-chip *{pointer-events:none}
+.filter-chip.active{background:#185FA5;color:#fff;border-color:#185FA5}
+.filter-chip:hover:not(.active){border-color:#185FA5;color:#185FA5}
 
 /* AI BAR */
-.ai-bar { margin: 1rem 1.5rem; background: #EFF6FF; border: 1px solid #B5D4F4; border-radius: 12px; padding: 1rem 1.25rem; display: flex; gap: 12px; align-items: flex-start; }
-.ai-icon { width: 34px; height: 34px; border-radius: 8px; background: #185FA5; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.ai-icon i { color: #fff; font-size: 16px; }
-.ai-label { font-size: 11px; color: #185FA5; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 4px; }
-.ai-text { font-size: 13px; color: #1a1a18; line-height: 1.5; }
-.ai-tags { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
-.ai-tag { font-size: 12px; padding: 4px 11px; border-radius: 20px; background: #fff; border: 1px solid #B5D4F4; color: #185FA5; cursor: pointer; transition: all 0.15s; }
-.ai-tag:hover { background: #185FA5; color: #fff; }
+.ai-bar{margin:1rem 1.5rem;background:#EFF6FF;border:1px solid #B5D4F4;border-radius:12px;padding:1rem 1.25rem;display:flex;gap:12px;align-items:flex-start}
+.ai-icon{width:32px;height:32px;border-radius:8px;background:#185FA5;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ai-icon i{color:#fff;font-size:15px}
+.ai-label{font-size:10px;color:#185FA5;font-weight:700;letter-spacing:0.06em;margin-bottom:3px}
+.ai-text{font-size:13px;color:#1a1a18;line-height:1.5}
+.ai-tags{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}
+.ai-tag{font-size:12px;padding:3px 10px;border-radius:20px;background:#fff;border:1px solid #B5D4F4;color:#185FA5;cursor:pointer;transition:all 0.15s}
+.ai-tag:hover{background:#185FA5;color:#fff}
 
 /* NOTIF BANNER */
-.notif-banner { margin: 0.75rem 1.5rem 0; padding: 10px 14px; background: #EAF3DE; border: 1px solid #C0DD97; border-radius: 10px; display: flex; align-items: center; gap: 10px; }
-.notif-banner i { color: #3B6D11; font-size: 17px; }
-.notif-text { font-size: 13px; color: #27500A; flex: 1; }
-.notif-close { background: none; border: none; cursor: pointer; color: #3B6D11; font-size: 18px; line-height: 1; }
+.notif-banner{margin:0.75rem 1.5rem 0;padding:9px 13px;background:#EAF3DE;border:1px solid #C0DD97;border-radius:10px;display:flex;align-items:center;gap:9px}
+.notif-banner i{color:#3B6D11;font-size:16px;flex-shrink:0}
+.notif-text{font-size:12px;color:#27500A;flex:1}
+.notif-close{background:none;border:none;cursor:pointer;color:#3B6D11;font-size:16px;line-height:1;flex-shrink:0}
 
 /* CARDS */
-.section-title { font-size: 12px; font-weight: 600; color: #999; text-transform: uppercase; letter-spacing: 0.07em; padding: 0 1.5rem; margin: 0.75rem 0 0.25rem; }
-.feed { padding: 0.5rem 1.5rem 1rem; display: flex; flex-direction: column; gap: 12px; }
-.card { background: #fff; border: 1px solid #e5e5e0; border-radius: 12px; padding: 1rem 1.25rem; display: flex; gap: 14px; align-items: flex-start; transition: border-color 0.15s, box-shadow 0.15s; }
-.card:hover { border-color: #185FA5; box-shadow: 0 2px 12px rgba(24,95,165,0.08); }
-.card-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.card-icon i { font-size: 22px; }
-.ic-hackathon { background: #E6F1FB; } .ic-hackathon i { color: #185FA5; }
-.ic-course   { background: #EAF3DE; } .ic-course i   { color: #3B6D11; }
-.ic-contest  { background: #FAEEDA; } .ic-contest i  { color: #854F0B; }
-.ic-grant    { background: #EEEDFE; } .ic-grant i    { color: #3C3489; }
-.ic-job      { background: #E1F5EE; } .ic-job i      { color: #085041; }
-.card-body { flex: 1; min-width: 0; }
-.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 4px; }
-.card-title { font-size: 15px; font-weight: 600; color: #1a1a18; line-height: 1.3; }
-.badge { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
-.badge-hack    { background: #E6F1FB; color: #0C447C; }
-.badge-course  { background: #EAF3DE; color: #27500A; }
-.badge-contest { background: #FAEEDA; color: #633806; }
-.badge-grant   { background: #EEEDFE; color: #3C3489; }
-.badge-job     { background: #E1F5EE; color: #085041; }
-.badge-free    { background: #EAF3DE; color: #27500A; }
-.card-desc { font-size: 13px; color: #555; margin-bottom: 8px; line-height: 1.55; }
-.card-meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-.meta-item { font-size: 12px; color: #999; display: flex; align-items: center; gap: 4px; }
-.meta-item i { font-size: 13px; }
-.card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
-.deadline-pill { font-size: 12px; font-weight: 500; padding: 4px 11px; border-radius: 20px; display: flex; align-items: center; gap: 4px; }
-.deadline-hot { background: #FCEBEB; color: #791F1F; }
-.deadline-ok  { background: #E6F1FB; color: #0C447C; }
-.save-btn { background: none; border: 1px solid #d0d0c8; border-radius: 8px; padding: 5px 12px; font-size: 12px; color: #555; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: all 0.15s; }
-.save-btn:hover { border-color: #185FA5; color: #185FA5; }
-.save-btn.saved { background: #E6F1FB; border-color: #185FA5; color: #185FA5; }
+.section-title{font-size:11px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:0.07em;padding:0 1.5rem;margin:0.75rem 0 0.25rem}
+.feed{padding:0.5rem 1.5rem 0.5rem;display:flex;flex-direction:column;gap:10px}
+.card{background:#fff;border:1px solid #e5e5e0;border-radius:12px;padding:1rem 1.1rem;display:flex;gap:12px;align-items:flex-start;transition:border-color 0.15s,box-shadow 0.15s;cursor:pointer}
+.card:hover{border-color:#185FA5;box-shadow:0 2px 12px rgba(24,95,165,0.08)}
+.card-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.card-icon i{font-size:21px}
+.ic-hackathon{background:#E6F1FB}.ic-hackathon i{color:#185FA5}
+.ic-course{background:#EAF3DE}.ic-course i{color:#3B6D11}
+.ic-contest{background:#FAEEDA}.ic-contest i{color:#854F0B}
+.ic-grant{background:#EEEDFE}.ic-grant i{color:#3C3489}
+.ic-job{background:#E1F5EE}.ic-job i{color:#085041}
+.card-body{flex:1;min-width:0}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:7px;margin-bottom:3px}
+.card-title{font-size:14px;font-weight:600;color:#1a1a18;line-height:1.3}
+.badge{font-size:10px;font-weight:600;padding:3px 8px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+.badge-hack{background:#E6F1FB;color:#0C447C}
+.badge-course{background:#EAF3DE;color:#27500A}
+.badge-contest{background:#FAEEDA;color:#633806}
+.badge-grant{background:#EEEDFE;color:#3C3489}
+.badge-job{background:#E1F5EE;color:#085041}
+.badge-free{background:#EAF3DE;color:#27500A}
+.card-desc{font-size:12px;color:#666;margin-bottom:7px;line-height:1.5}
+.card-meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.meta-item{font-size:11px;color:#aaa;display:flex;align-items:center;gap:3px}
+.meta-item i{font-size:12px}
+.card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:9px}
+.deadline-pill{font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;display:flex;align-items:center;gap:3px}
+.deadline-hot{background:#FCEBEB;color:#791F1F}
+.deadline-ok{background:#E6F1FB;color:#0C447C}
+.save-btn{background:none;border:1px solid #d0d0c8;border-radius:7px;padding:4px 10px;font-size:11px;color:#666;cursor:pointer;display:flex;align-items:center;gap:4px;transition:all 0.15s}
+.save-btn:hover{border-color:#185FA5;color:#185FA5}
+.save-btn.saved{background:#E6F1FB;border-color:#185FA5;color:#185FA5}
+.save-btn i{pointer-events:none}
 
-/* EMPTY STATE */
-.empty { padding: 3rem 1.5rem; text-align: center; color: #bbb; }
-.empty i { font-size: 44px; display: block; margin-bottom: 12px; }
-.empty p { font-size: 14px; color: #999; }
+/* EMPTY */
+.empty{padding:3rem 1.5rem;text-align:center;color:#bbb}
+.empty i{font-size:44px;display:block;margin-bottom:12px}
+.empty p{font-size:14px;color:#999}
 
-/* PAGE HEADERS */
-.page-header { padding: 1.25rem 1.5rem; background: #fff; border-bottom: 1px solid #e5e5e0; display: flex; align-items: center; gap: 12px; }
-.page-header h1 { font-size: 20px; font-weight: 700; color: #1a1a18; }
+/* PAGE HEADER */
+.page-header{padding:1.1rem 1.5rem;background:#fff;border-bottom:1px solid #e5e5e0;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:50}
+.page-header h1{font-size:18px;font-weight:700;color:#1a1a18}
 
-/* SEARCH PAGE */
-.search-page-bar { padding: 1rem 1.5rem; background: #fff; border-bottom: 1px solid #e5e5e0; }
-.search-page-bar input { width: 100%; padding: 0 14px; height: 44px; border: 1px solid #d0d0c8; border-radius: 10px; font-size: 14px; background: #fafaf8; color: #1a1a18; outline: none; transition: border-color 0.2s; }
-.search-page-bar input:focus { border-color: #185FA5; background: #fff; }
-.search-tags { display: flex; gap: 8px; padding: 0.75rem 1.5rem; flex-wrap: wrap; background: #fff; border-bottom: 1px solid #e5e5e0; }
-.search-tag { padding: 6px 14px; border-radius: 20px; border: 1px solid #d0d0c8; font-size: 13px; color: #555; cursor: pointer; background: #fafaf8; transition: all 0.15s; }
-.search-tag:hover { border-color: #185FA5; color: #185FA5; }
+/* NOTIF LIST */
+.notif-list{padding:1rem 1.5rem;display:flex;flex-direction:column;gap:9px}
+.notif-item{background:#fff;border:1px solid #e5e5e0;border-radius:12px;padding:1rem 1.1rem;display:flex;gap:11px;align-items:flex-start}
+.notif-item.unread{border-left:3px solid #185FA5}
+.notif-dot{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.notif-dot i{font-size:17px}
+.nd-blue{background:#E6F1FB}.nd-blue i{color:#185FA5}
+.nd-green{background:#EAF3DE}.nd-green i{color:#3B6D11}
+.nd-amber{background:#FAEEDA}.nd-amber i{color:#854F0B}
+.notif-body{flex:1}
+.notif-title{font-size:14px;font-weight:600;color:#1a1a18;margin-bottom:3px}
+.notif-desc{font-size:12px;color:#666;line-height:1.4}
+.notif-time{font-size:11px;color:#bbb;margin-top:4px}
+.sub-toggle{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:#fff;border-bottom:1px solid #e5e5e0}
+.sub-toggle-label{font-size:14px;color:#1a1a18;font-weight:500;display:flex;align-items:center;gap:7px}
+.toggle{width:44px;height:24px;border-radius:12px;background:#185FA5;position:relative;cursor:pointer;transition:background 0.2s;flex-shrink:0}
+.toggle::after{content:'';position:absolute;width:18px;height:18px;border-radius:50%;background:#fff;top:3px;right:3px;transition:right 0.2s}
+.toggle.off{background:#d0d0c8}
+.toggle.off::after{right:23px}
 
-/* NOTIFICATION PAGE */
-.notif-list { padding: 1rem 1.5rem; display: flex; flex-direction: column; gap: 10px; }
-.notif-item { background: #fff; border: 1px solid #e5e5e0; border-radius: 12px; padding: 1rem 1.25rem; display: flex; gap: 12px; align-items: flex-start; }
-.notif-item.unread { border-left: 3px solid #185FA5; }
-.notif-dot { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.notif-dot i { font-size: 18px; }
-.nd-blue { background: #E6F1FB; } .nd-blue i { color: #185FA5; }
-.nd-green { background: #EAF3DE; } .nd-green i { color: #3B6D11; }
-.nd-amber { background: #FAEEDA; } .nd-amber i { color: #854F0B; }
-.notif-body { flex: 1; }
-.notif-title { font-size: 14px; font-weight: 600; color: #1a1a18; margin-bottom: 3px; }
-.notif-desc { font-size: 13px; color: #666; line-height: 1.4; }
-.notif-time { font-size: 11px; color: #bbb; margin-top: 4px; }
-.sub-toggle { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; background: #fff; border-bottom: 1px solid #e5e5e0; }
-.sub-toggle-label { font-size: 14px; color: #1a1a18; font-weight: 500; }
-.toggle { width: 44px; height: 24px; border-radius: 12px; background: #185FA5; position: relative; cursor: pointer; transition: background 0.2s; }
-.toggle::after { content: ''; position: absolute; width: 18px; height: 18px; border-radius: 50%; background: #fff; top: 3px; right: 3px; transition: right 0.2s; }
-.toggle.off { background: #d0d0c8; }
-.toggle.off::after { right: 23px; }
-
-/* PROFILE PAGE */
-.profile-hero { padding: 2rem 1.5rem; background: #fff; border-bottom: 1px solid #e5e5e0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-.avatar { width: 72px; height: 72px; border-radius: 50%; background: #185FA5; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; color: #fff; }
-.profile-name { font-size: 20px; font-weight: 700; color: #1a1a18; }
-.profile-sub { font-size: 13px; color: #999; }
-.profile-stats { display: flex; gap: 2rem; margin-top: 4px; }
-.pstat { text-align: center; }
-.pstat-num { font-size: 18px; font-weight: 700; color: #185FA5; }
-.pstat-label { font-size: 11px; color: #999; }
-.menu-list { padding: 1rem 1.5rem; display: flex; flex-direction: column; gap: 8px; }
-.menu-item { background: #fff; border: 1px solid #e5e5e0; border-radius: 12px; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: border-color 0.15s; }
-.menu-item:hover { border-color: #185FA5; }
-.menu-icon { width: 36px; height: 36px; border-radius: 9px; background: #E6F1FB; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.menu-icon i { font-size: 18px; color: #185FA5; }
-.menu-label { flex: 1; font-size: 14px; font-weight: 500; color: #1a1a18; }
-.menu-arrow { color: #ccc; font-size: 18px; }
+/* PROFILE */
+.profile-hero{padding:1.75rem 1.5rem;background:#fff;border-bottom:1px solid #e5e5e0;display:flex;flex-direction:column;align-items:center;gap:10px}
+.avatar{width:68px;height:68px;border-radius:50%;background:#185FA5;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;color:#fff;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.profile-name{font-size:18px;font-weight:700;color:#1a1a18}
+.profile-email{font-size:13px;color:#999}
+.profile-stats{display:flex;gap:2rem;margin-top:4px}
+.pstat{text-align:center}
+.pstat-num{font-size:17px;font-weight:700;color:#185FA5}
+.pstat-label{font-size:11px;color:#999}
+.menu-list{padding:1rem 1.5rem;display:flex;flex-direction:column;gap:8px}
+.menu-item{background:#fff;border:1px solid #e5e5e0;border-radius:12px;padding:0.9rem 1.1rem;display:flex;align-items:center;gap:11px;cursor:pointer;transition:border-color 0.15s}
+.menu-item:hover{border-color:#185FA5}
+.menu-icon{width:34px;height:34px;border-radius:9px;background:#E6F1FB;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.menu-icon i{font-size:17px;color:#185FA5}
+.menu-label{flex:1;font-size:14px;font-weight:500;color:#1a1a18}
+.menu-arrow{color:#ccc;font-size:17px}
+.logout-icon{background:#FCEBEB!important}
+.logout-icon i{color:#791F1F!important}
+.logout-label{color:#791F1F!important}
 
 /* BOTTOM NAV */
-.nav-bottom { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e5e5e0; display: flex; justify-content: space-around; padding: 8px 0 max(4px, env(safe-area-inset-bottom)); z-index: 100; }
-.nav-item { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 16px; cursor: pointer; color: #aaa; transition: color 0.15s; user-select: none; }
-.nav-item.active { color: #185FA5; }
-.nav-item i { font-size: 23px; pointer-events: none; }
-.nav-item span { font-size: 10px; font-weight: 500; pointer-events: none; }
-.nav-badge { position: relative; }
-.nav-badge::after { content: "3"; position: absolute; top: -4px; right: -6px; background: #E24B4A; color: #fff; font-size: 9px; font-weight: 700; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; line-height: 16px; text-align: center; }
+.nav-bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e5e5e0;display:flex;justify-content:space-around;padding:8px 0 max(4px,env(safe-area-inset-bottom));z-index:100}
+.nav-item{display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 14px;cursor:pointer;color:#bbb;transition:color 0.15s;user-select:none;position:relative}
+.nav-item *{pointer-events:none}
+.nav-item.active{color:#185FA5}
+.nav-item i{font-size:22px}
+.nav-item span{font-size:10px;font-weight:500}
+.nav-dot{position:absolute;top:4px;right:10px;width:8px;height:8px;border-radius:50%;background:#E24B4A;border:2px solid #fff}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;display:none;align-items:flex-end;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:20px 20px 0 0;padding:1.5rem;width:100%;max-width:500px;animation:slideUp 0.25s ease}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.modal-handle{width:36px;height:4px;border-radius:2px;background:#e5e5e0;margin:0 auto 1.25rem}
+.modal h3{font-size:17px;font-weight:700;margin-bottom:0.5rem}
+.modal p{font-size:13px;color:#666;margin-bottom:1rem;line-height:1.5}
+.modal-actions{display:flex;gap:8px}
+.modal-btn{flex:1;padding:11px;border-radius:10px;border:none;font-size:14px;font-weight:500;cursor:pointer}
+.modal-btn-primary{background:#185FA5;color:#fff}
+.modal-btn-secondary{background:#f5f5f0;color:#555}
 </style>
 </head>
 <body>
 
-<!-- ======== PAGE 1: ASOSIY ======== -->
+<!-- ===== LOGIN PAGE ===== -->
+<div id="loginPage" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:2rem;background:linear-gradient(135deg,#0f2a4a 0%,#185FA5 50%,#1a8abf 100%)">
+  <div style="width:64px;height:64px;border-radius:18px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;backdrop-filter:blur(10px)">
+    <i class="ti ti-bolt" style="color:#fff;font-size:32px"></i>
+  </div>
+  <div style="font-size:26px;font-weight:700;color:#fff;text-align:center;margin-bottom:0.4rem">OpportunityHub UZ</div>
+  <div style="font-size:14px;color:rgba(255,255,255,0.7);text-align:center;margin-bottom:2rem;line-height:1.5">Barcha imkoniyatlar bir joyda.<br>Bepul kurslar, hackathonlar, grantlar.</div>
+
+  <div style="background:#fff;border-radius:20px;padding:1.75rem;width:100%;max-width:340px;box-shadow:0 20px 60px rgba(0,0,0,0.3)">
+    <div style="font-size:17px;font-weight:700;color:#1a1a18;margin-bottom:0.2rem">Kirish</div>
+    <div style="font-size:12px;color:#999;margin-bottom:1.25rem">Imkoniyatlarni kuzatish uchun kiring</div>
+
+    <!-- Google -->
+    <button class="social-btn" onclick="loginWith('google')">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      Google bilan kirish
+    </button>
+
+    <!-- GitHub -->
+    <button class="social-btn github" onclick="loginWith('github')">
+      <i class="ti ti-brand-github"></i>
+      GitHub bilan kirish
+    </button>
+
+    <div class="divider"><hr><span>yoki email bilan</span><hr></div>
+
+    <input type="email" class="email-input" id="emailInput" placeholder="email@gmail.com" />
+    <button class="login-btn" onclick="loginWith('email')">Kirish →</button>
+    <button class="skip-btn" onclick="loginWith('guest')">Akkauntsiz davom etish</button>
+  </div>
+</div>
+
+<!-- ===== MAIN APP ===== -->
+<div id="mainApp" style="display:none">
+
+<!-- PAGE: ASOSIY -->
 <div id="page-home" class="page active">
   <div class="hero">
-    <div class="logo-row">
-      <div class="logo-badge"><i class="ti ti-bolt"></i></div>
-      <div class="site-name">Opportunity<span>Hub</span> UZ</div>
+    <div class="hero-img-placeholder">
+      <i class="ti ti-rocket"></i>
+      <span>Yoshlar uchun imkoniyatlar</span>
     </div>
-    <div class="tagline">Barcha imkoniyatlar —<br>bir joyda</div>
-    <div class="sub">Bepul kurslar, hackathonlar, tanlovlar va grantlar</div>
-    <div class="search-bar">
-      <input type="text" id="homeSearch" placeholder="Kurs, hackathon, grant..." />
-      <button onclick="goSearchWith()"><i class="ti ti-search"></i> Qidirish</button>
-    </div>
-    <a href="https://t.me/opportunityhub_uz_bot" target="_blank" class="tg-btn"><i class="ti ti-brand-telegram"></i> Telegram botda ochish</a>
-    <div class="stats-row">
-      <div><div class="stat-num">247</div><div class="stat-label">Faol imkoniyat</div></div>
-      <div><div class="stat-num">12,400+</div><div class="stat-label">Foydalanuvchi</div></div>
-      <div><div class="stat-num">38</div><div class="stat-label">Yangi bugun</div></div>
+    <div class="hero-content">
+      <div class="logo-row">
+        <div class="logo-badge"><i class="ti ti-bolt"></i></div>
+        <div class="site-name">Opportunity<span>Hub</span> UZ</div>
+      </div>
+      <div class="tagline">Barcha imkoniyatlar —<br>bir joyda</div>
+      <div class="sub">Bepul kurslar, hackathonlar, tanlovlar va grantlar</div>
+      <div class="search-bar">
+        <input type="text" id="homeSearch" placeholder="Kurs, hackathon, grant..." />
+        <button onclick="goSearchWith()"><i class="ti ti-search" style="pointer-events:none"></i> Qidirish</button>
+      </div>
+      <a href="https://t.me/opportunityhub_uz_bot" target="_blank" class="tg-btn">
+        <i class="ti ti-brand-telegram"></i> Telegram botda ochish
+      </a>
+      <div class="stats-row">
+        <div><div class="stat-num">247</div><div class="stat-label">Faol imkoniyat</div></div>
+        <div><div class="stat-num">12,400+</div><div class="stat-label">Foydalanuvchi</div></div>
+        <div><div class="stat-num">38</div><div class="stat-label">Yangi bugun</div></div>
+      </div>
     </div>
   </div>
 
   <div class="notif-banner" id="notifBanner">
     <i class="ti ti-bell"></i>
-    <span class="notif-text">Yangi: AI Youth Hackathon uchun ariza qabul boshlanди! ⚠️ 2 kun qoldi</span>
-    <button class="notif-close" onclick="this.parentElement.style.display='none'"><i class="ti ti-x"></i></button>
+    <span class="notif-text">Yangi: AI Youth Hackathon ariza qabul boshlandi! ⚠️ 2 kun qoldi</span>
+    <button class="notif-close" onclick="document.getElementById('notifBanner').style.display='none'"><i class="ti ti-x" style="pointer-events:none"></i></button>
   </div>
 
   <div class="ai-bar" style="margin-top:1rem">
     <div class="ai-icon"><i class="ti ti-brain"></i></div>
     <div>
       <div class="ai-label">AI TAVSIYA</div>
-      <div class="ai-text">Siz uchun: <strong>3 ta hackathon</strong> va <strong>2 ta bepul kurs</strong> topildi. Muddatlar yaqinlashmoqda!</div>
+      <div class="ai-text">Siz uchun: <strong>3 ta hackathon</strong> va <strong>2 ta bepul kurs</strong> topildi!</div>
       <div class="ai-tags">
         <span class="ai-tag" onclick="goPage('search','hackathon')">Hackathonlar</span>
         <span class="ai-tag" onclick="goPage('search','course')">Bepul kurslar</span>
@@ -203,44 +287,45 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   <div class="feed" id="homeFeedAll"></div>
 </div>
 
-<!-- ======== PAGE 2: QIDIRISH ======== -->
+<!-- PAGE: QIDIRISH -->
 <div id="page-search" class="page">
   <div class="page-header">
-    <i class="ti ti-search" style="font-size:22px;color:#185FA5"></i>
+    <i class="ti ti-search" style="font-size:20px;color:#185FA5"></i>
     <h1>Qidirish</h1>
   </div>
-  <div class="search-page-bar">
-    <input type="text" id="searchPageInput" placeholder="Kurs, hackathon, grant, kompaniya..." oninput="doPageSearch()" />
+  <div style="padding:0.75rem 1.5rem;background:#fff;border-bottom:1px solid #e5e5e0">
+    <input type="text" id="searchPageInput" placeholder="Kurs, hackathon, grant, kompaniya..." oninput="doPageSearch()"
+      style="width:100%;padding:0 13px;height:42px;border:1px solid #d0d0c8;border-radius:10px;font-size:14px;color:#1a1a18;background:#fafaf8;outline:none">
   </div>
   <div class="filters" id="searchFilters">
-    <span class="filter-chip active" onclick="setFilter('all',this)"><i class="ti ti-apps" style="font-size:13px;margin-right:3px"></i> Barchasi</span>
-    <span class="filter-chip" onclick="setFilter('hackathon',this)"><i class="ti ti-code" style="font-size:13px;margin-right:3px"></i> Hackathon</span>
-    <span class="filter-chip" onclick="setFilter('course',this)"><i class="ti ti-book" style="font-size:13px;margin-right:3px"></i> Kurs</span>
-    <span class="filter-chip" onclick="setFilter('contest',this)"><i class="ti ti-trophy" style="font-size:13px;margin-right:3px"></i> Tanlov</span>
-    <span class="filter-chip" onclick="setFilter('grant',this)"><i class="ti ti-moneybag" style="font-size:13px;margin-right:3px"></i> Grant</span>
-    <span class="filter-chip" onclick="setFilter('job',this)"><i class="ti ti-briefcase" style="font-size:13px;margin-right:3px"></i> Ish/Stajyorlik</span>
+    <span class="filter-chip active" onclick="setFilter('all',this)"><i class="ti ti-apps"></i> Barchasi</span>
+    <span class="filter-chip" onclick="setFilter('hackathon',this)"><i class="ti ti-code"></i> Hackathon</span>
+    <span class="filter-chip" onclick="setFilter('course',this)"><i class="ti ti-book"></i> Kurs</span>
+    <span class="filter-chip" onclick="setFilter('contest',this)"><i class="ti ti-trophy"></i> Tanlov</span>
+    <span class="filter-chip" onclick="setFilter('grant',this)"><i class="ti ti-moneybag"></i> Grant</span>
+    <span class="filter-chip" onclick="setFilter('job',this)"><i class="ti ti-briefcase"></i> Ish</span>
   </div>
   <div class="section-title" id="searchCount">Barcha imkoniyatlar</div>
   <div class="feed" id="searchFeed"></div>
 </div>
 
-<!-- ======== PAGE 3: SAQLANGAN ======== -->
+<!-- PAGE: SAQLANGAN -->
 <div id="page-saved" class="page">
   <div class="page-header">
-    <i class="ti ti-bookmark" style="font-size:22px;color:#185FA5"></i>
+    <i class="ti ti-bookmark" style="font-size:20px;color:#185FA5"></i>
     <h1>Saqlangan</h1>
   </div>
   <div class="feed" id="savedFeed"></div>
 </div>
 
-<!-- ======== PAGE 4: BILDIRISHNOMA ======== -->
+<!-- PAGE: BILDIRISHNOMA -->
 <div id="page-notif" class="page">
   <div class="page-header">
-    <i class="ti ti-bell" style="font-size:22px;color:#185FA5"></i>
+    <i class="ti ti-bell" style="font-size:20px;color:#185FA5"></i>
     <h1>Bildirishnomalar</h1>
   </div>
   <div class="sub-toggle">
-    <span class="sub-toggle-label"><i class="ti ti-bell" style="font-size:15px;margin-right:6px;color:#185FA5"></i>Push bildirishnomalar</span>
+    <span class="sub-toggle-label"><i class="ti ti-bell" style="font-size:15px;color:#185FA5"></i> Push bildirishnomalar</span>
     <div class="toggle" onclick="this.classList.toggle('off')"></div>
   </div>
   <div class="notif-list">
@@ -272,7 +357,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <div class="notif-dot nd-blue"><i class="ti ti-star"></i></div>
       <div class="notif-body">
         <div class="notif-title">DAAD Stipendiyasi yangilandi</div>
-        <div class="notif-desc">Germaniya stipendiyasi uchun yangi talablar e'lon qilindi. Ko'rib chiqing.</div>
+        <div class="notif-desc">Germaniya stipendiyasi uchun yangi talablar e'lon qilindi.</div>
         <div class="notif-time">Kecha</div>
       </div>
     </div>
@@ -287,12 +372,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   </div>
 </div>
 
-<!-- ======== PAGE 5: PROFIL ======== -->
+<!-- PAGE: PROFIL -->
 <div id="page-profile" class="page">
+  <div class="page-header">
+    <i class="ti ti-user" style="font-size:20px;color:#185FA5"></i>
+    <h1>Profil</h1>
+  </div>
   <div class="profile-hero">
-    <div class="avatar">Y</div>
-    <div class="profile-name">Yoshlar Foydalanuvchi</div>
-    <div class="profile-sub">Toshkent, O'zbekiston</div>
+    <div class="avatar" id="userAvatar">Y</div>
+    <div class="profile-name" id="userName">Foydalanuvchi</div>
+    <div class="profile-email" id="userEmail">—</div>
     <div class="profile-stats">
       <div class="pstat"><div class="pstat-num" id="pSaved">0</div><div class="pstat-label">Saqlangan</div></div>
       <div class="pstat"><div class="pstat-num">5</div><div class="pstat-label">Ko'rilgan</div></div>
@@ -320,15 +409,15 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <div class="menu-label">Til: O'zbek</div>
       <i class="ti ti-chevron-right menu-arrow"></i>
     </div>
-    <div class="menu-item">
-      <div class="menu-icon" style="background:#FCEBEB"><i class="ti ti-logout" style="color:#791F1F"></i></div>
-      <div class="menu-label" style="color:#791F1F">Chiqish</div>
+    <div class="menu-item" onclick="doLogout()">
+      <div class="menu-icon logout-icon"><i class="ti ti-logout" style="color:#791F1F"></i></div>
+      <div class="menu-label logout-label">Chiqish</div>
       <i class="ti ti-chevron-right menu-arrow"></i>
     </div>
   </div>
 </div>
 
-<!-- ======== BOTTOM NAV ======== -->
+<!-- BOTTOM NAV -->
 <div class="nav-bottom">
   <div class="nav-item active" id="nav-home" onclick="goPage('home')">
     <i class="ti ti-home"></i><span>Asosiy</span>
@@ -340,43 +429,111 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <i class="ti ti-bookmark"></i><span>Saqlangan</span>
   </div>
   <div class="nav-item" id="nav-notif" onclick="goPage('notif')">
-    <i class="ti ti-bell nav-badge"></i><span>Bildirishnoma</span>
+    <i class="ti ti-bell"></i><span>Bildirishnoma</span>
+    <div class="nav-dot"></div>
   </div>
   <div class="nav-item" id="nav-profile" onclick="goPage('profile')">
     <i class="ti ti-user"></i><span>Profil</span>
   </div>
 </div>
 
+</div><!-- /mainApp -->
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <h3 id="modalTitle">Chiqishni tasdiqlang</h3>
+    <p id="modalDesc">Akkauntdan chiqmoqchimisiz?</p>
+    <div class="modal-actions">
+      <button class="modal-btn modal-btn-secondary" onclick="closeModal()">Bekor</button>
+      <button class="modal-btn modal-btn-primary" onclick="confirmLogout()">Ha, chiqish</button>
+    </div>
+  </div>
+</div>
+
 <script>
+// ===== DATA =====
 const DATA = [
-  { id:1, type:'hackathon', title:'UzHack 2026 — Milliy Hackathon', desc:'O\'zbekiston yoshlari uchun eng katta hackathon. Sovrin: 50,000,000 so\'m. Barcha yo\'nalishlar: AI, FinTech, EdTech.', org:'IT Park Uzbekistan', loc:'Toshkent / Online', deadline:'3 kun qoldi', hot:true, free:true, icon:'ti-code', iconClass:'ic-hackathon', badge:'Hackathon', badgeClass:'badge-hack' },
-  { id:2, type:'course', title:'CS50x — Harvard bepul kursi', desc:'Kompyuter fanlari asoslari. Sertifikat bilan. O\'zbek tilidagi mentorlar mavjud. Har oy yangi to\'lqin boshlanadi.', org:'Harvard / edX', loc:'Online', deadline:'12 kun qoldi', hot:false, free:true, icon:'ti-book', iconClass:'ic-course', badge:'Bepul Kurs', badgeClass:'badge-course' },
-  { id:3, type:'grant', title:'DAAD Stipendiyasi — Germaniya', desc:'Bakalavriat va magistratura uchun to\'liq grant. Yashash va uchish harajatlari qoplangan.', org:'DAAD', loc:'Germaniya', deadline:'18 kun qoldi', hot:false, free:true, icon:'ti-star', iconClass:'ic-grant', badge:'Grant', badgeClass:'badge-grant' },
-  { id:4, type:'contest', title:'Google Code Jam 2026', desc:'Dunyo miqyosidagi dasturlash musobaqasi. Grand-prize: $15,000. Barcha yoshlar uchun ochiq.', org:'Google', loc:'Online', deadline:'5 kun qoldi', hot:true, free:true, icon:'ti-trophy', iconClass:'ic-contest', badge:'Tanlov', badgeClass:'badge-contest' },
-  { id:5, type:'job', title:'Frontend Intern — Uzum Market', desc:'3 oylik to\'lov qilinadigan stajyorlik. React.js tajribasi shart emas. Mentorlik bilan.', org:'Uzum Market', loc:'Toshkent', deadline:'7 kun qoldi', hot:false, free:false, icon:'ti-briefcase', iconClass:'ic-job', badge:'Stajyorlik', badgeClass:'badge-job' },
-  { id:6, type:'hackathon', title:'AI Youth Hackathon — UNDP', desc:'AI orqali ijtimoiy muammolarni hal qilish. Sovrin: $5,000. Jamoaviy ishtirok (2-4 kishi).', org:'UNDP Uzbekistan', loc:'Toshkent', deadline:'2 kun qoldi', hot:true, free:true, icon:'ti-robot', iconClass:'ic-hackathon', badge:'Hackathon', badgeClass:'badge-hack' },
-  { id:7, type:'course', title:'Python bilan ma\'lumotlar tahlili', desc:'Yandex va Google tomonidan bepul kurs. Sertifikat bilan yakunlanadi.', org:'Yandex / Coursera', loc:'Online', deadline:'Doimiy ochiq', hot:false, free:true, icon:'ti-chart-bar', iconClass:'ic-course', badge:'Bepul Kurs', badgeClass:'badge-course' },
-  { id:8, type:'grant', title:'Prezident yoshlar granti', desc:'Startaplar uchun 100 mln so\'mgacha grant. 18-35 yoshdagi fuqarolar uchun.', org:'Yoshlar Agentligi', loc:'O\'zbekiston', deadline:'25 kun qoldi', hot:false, free:true, icon:'ti-award', iconClass:'ic-grant', badge:'Grant', badgeClass:'badge-grant' },
+  {id:1,type:'hackathon',title:'UzHack 2026 — Milliy Hackathon',desc:'O\'zbekiston yoshlari uchun eng katta hackathon. Sovrin: 50,000,000 so\'m. AI, FinTech, EdTech.',org:'IT Park Uzbekistan',loc:'Toshkent / Online',deadline:'3 kun qoldi',hot:true,free:true,icon:'ti-code',iconClass:'ic-hackathon',badge:'Hackathon',badgeClass:'badge-hack'},
+  {id:2,type:'course',title:'CS50x — Harvard bepul kursi',desc:'Kompyuter fanlari asoslari. Sertifikat bilan. O\'zbek tilidagi mentorlar mavjud.',org:'Harvard / edX',loc:'Online',deadline:'12 kun qoldi',hot:false,free:true,icon:'ti-book',iconClass:'ic-course',badge:'Bepul Kurs',badgeClass:'badge-course'},
+  {id:3,type:'grant',title:'DAAD Stipendiyasi — Germaniya',desc:'Magistratura uchun to\'liq grant. Yashash va uchish harajatlari qoplangan.',org:'DAAD',loc:'Germaniya',deadline:'18 kun qoldi',hot:false,free:true,icon:'ti-star',iconClass:'ic-grant',badge:'Grant',badgeClass:'badge-grant'},
+  {id:4,type:'contest',title:'Google Code Jam 2026',desc:'Dunyo miqyosidagi dasturlash musobaqasi. Grand-prize: $15,000.',org:'Google',loc:'Online',deadline:'5 kun qoldi',hot:true,free:true,icon:'ti-trophy',iconClass:'ic-contest',badge:'Tanlov',badgeClass:'badge-contest'},
+  {id:5,type:'job',title:'Frontend Intern — Uzum Market',desc:'3 oylik to\'lov qilinadigan stajyorlik. React.js tajribasi shart emas.',org:'Uzum Market',loc:'Toshkent',deadline:'7 kun qoldi',hot:false,free:false,icon:'ti-briefcase',iconClass:'ic-job',badge:'Stajyorlik',badgeClass:'badge-job'},
+  {id:6,type:'hackathon',title:'AI Youth Hackathon — UNDP',desc:'AI orqali ijtimoiy muammolarni hal qilish. Sovrin: $5,000.',org:'UNDP Uzbekistan',loc:'Toshkent',deadline:'2 kun qoldi',hot:true,free:true,icon:'ti-robot',iconClass:'ic-hackathon',badge:'Hackathon',badgeClass:'badge-hack'},
+  {id:7,type:'course',title:'Python bilan ma\'lumotlar tahlili',desc:'Yandex va Google tomonidan bepul kurs. Sertifikat bilan.',org:'Yandex / Coursera',loc:'Online',deadline:'Doimiy ochiq',hot:false,free:true,icon:'ti-chart-bar',iconClass:'ic-course',badge:'Bepul Kurs',badgeClass:'badge-course'},
+  {id:8,type:'grant',title:'Prezident yoshlar granti',desc:'Startaplar uchun 100 mln so\'mgacha grant. 18-35 yoshdagi fuqarolar.',org:'Yoshlar Agentligi',loc:'O\'zbekiston',deadline:'25 kun qoldi',hot:false,free:true,icon:'ti-award',iconClass:'ic-grant',badge:'Grant',badgeClass:'badge-grant'},
 ];
 
 let saved = new Set();
 let searchFilter = 'all';
 let searchQuery = '';
+let currentUser = null;
 
-// ---- NAVIGATION ----
+// ===== LOGIN =====
+function loginWith(provider) {
+  const names = {google:'Google Foydalanuvchi', github:'GitHub Foydalanuvchi', email:'', guest:'Mehmon'};
+  const emails = {google:'user@gmail.com', github:'user@github.com', email:'', guest:'mehmon@opportunityhub.uz'};
+
+  if (provider === 'email') {
+    const email = document.getElementById('emailInput').value.trim();
+    if (!email || !email.includes('@')) { alert('To\'g\'ri email kiriting!'); return; }
+    currentUser = {name: email.split('@')[0], email, provider:'email', avatar:null};
+  } else {
+    currentUser = {name: names[provider], email: emails[provider], provider, avatar:null};
+  }
+
+  // Save to localStorage
+  localStorage.setItem('ohub_user', JSON.stringify(currentUser));
+  showApp();
+}
+
+function showApp() {
+  document.getElementById('loginPage').style.display = 'none';
+  document.getElementById('mainApp').style.display = 'block';
+  updateProfile();
+  renderHome();
+  renderSearchFeed();
+}
+
+function updateProfile() {
+  if (!currentUser) return;
+  const initials = currentUser.name.charAt(0).toUpperCase();
+  document.getElementById('userAvatar').textContent = initials;
+  document.getElementById('userName').textContent = currentUser.name;
+  document.getElementById('userEmail').textContent = currentUser.email || currentUser.provider + ' orqali kirdi';
+}
+
+function doLogout() {
+  document.getElementById('modalOverlay').classList.add('open');
+}
+function confirmLogout() {
+  localStorage.removeItem('ohub_user');
+  saved.clear();
+  currentUser = null;
+  closeModal();
+  document.getElementById('mainApp').style.display = 'none';
+  document.getElementById('loginPage').style.display = 'flex';
+}
+function closeModal(e) {
+  if (!e || e.target === document.getElementById('modalOverlay')) {
+    document.getElementById('modalOverlay').classList.remove('open');
+  }
+}
+
+// ===== NAVIGATION =====
 function goPage(page, filterType) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   document.getElementById('page-' + page).classList.add('active');
   document.getElementById('nav-' + page).classList.add('active');
-  window.scrollTo(0, 0);
-
+  window.scrollTo(0,0);
   if (page === 'search') {
     if (filterType) {
       searchFilter = filterType;
       document.querySelectorAll('#searchFilters .filter-chip').forEach(c => c.classList.remove('active'));
-      const chips = document.querySelectorAll('#searchFilters .filter-chip');
       const map = ['all','hackathon','course','contest','grant','job'];
+      const chips = document.querySelectorAll('#searchFilters .filter-chip');
       const idx = map.indexOf(filterType);
       if (idx >= 0) chips[idx].classList.add('active');
     }
@@ -393,7 +550,7 @@ function goSearchWith() {
   goPage('search');
 }
 
-// ---- CARD HTML ----
+// ===== CARDS =====
 function cardHTML(d) {
   const isSaved = saved.has(d.id);
   return `<div class="card">
@@ -411,7 +568,7 @@ function cardHTML(d) {
       </div>
       <div class="card-footer">
         <span class="deadline-pill ${d.hot ? 'deadline-hot' : 'deadline-ok'}"><i class="ti ti-clock"></i>${d.deadline}</span>
-        <button class="save-btn ${isSaved ? 'saved' : ''}" onclick="toggleSave(${d.id}, this)">
+        <button class="save-btn ${isSaved ? 'saved' : ''}" onclick="toggleSave(${d.id},this)">
           <i class="ti ${isSaved ? 'ti-bookmark-filled' : 'ti-bookmark'}"></i>
           ${isSaved ? 'Saqlangan' : 'Saqlash'}
         </button>
@@ -420,19 +577,26 @@ function cardHTML(d) {
   </div>`;
 }
 
-function emptyHTML(text) {
-  return `<div class="empty"><i class="ti ti-inbox"></i><p>${text}</p></div>`;
+function emptyHTML(txt) {
+  return `<div class="empty"><i class="ti ti-inbox"></i><p>${txt}</p></div>`;
 }
 
-// ---- HOME ----
+function toggleSave(id, btn) {
+  saved.has(id) ? saved.delete(id) : saved.add(id);
+  const is = saved.has(id);
+  btn.className = 'save-btn' + (is ? ' saved' : '');
+  btn.innerHTML = `<i class="ti ${is ? 'ti-bookmark-filled' : 'ti-bookmark'}"></i> ${is ? 'Saqlangan' : 'Saqlash'}`;
+  if (document.getElementById('page-saved').classList.contains('active')) renderSavedFeed();
+  document.getElementById('pSaved').textContent = saved.size;
+}
+
 function renderHome() {
   const hot = DATA.filter(d => d.hot);
-  const all = DATA.filter(d => !d.hot);
+  const rest = DATA.filter(d => !d.hot);
   document.getElementById('homeFeedHot').innerHTML = hot.map(cardHTML).join('');
-  document.getElementById('homeFeedAll').innerHTML = all.map(cardHTML).join('');
+  document.getElementById('homeFeedAll').innerHTML = rest.map(cardHTML).join('');
 }
 
-// ---- SEARCH ----
 function setFilter(type, el) {
   searchFilter = type;
   document.querySelectorAll('#searchFilters .filter-chip').forEach(c => c.classList.remove('active'));
@@ -452,31 +616,24 @@ function renderSearchFeed() {
     return mf && ms;
   });
   document.getElementById('searchCount').textContent = items.length + ' ta imkoniyat topildi';
-  document.getElementById('searchFeed').innerHTML = items.length
-    ? items.map(cardHTML).join('')
-    : emptyHTML('Natija topilmadi. Qidiruvni o\'zgartiring.');
+  document.getElementById('searchFeed').innerHTML = items.length ? items.map(cardHTML).join('') : emptyHTML('Natija topilmadi.');
 }
 
-// ---- SAVED ----
 function renderSavedFeed() {
   const items = DATA.filter(d => saved.has(d.id));
-  document.getElementById('savedFeed').innerHTML = items.length
-    ? items.map(cardHTML).join('')
-    : emptyHTML('Hali hech narsa saqlanmagan. Kartochkada 🔖 Saqlash tugmasini bosing.');
+  document.getElementById('savedFeed').innerHTML = items.length ? items.map(cardHTML).join('') : emptyHTML('Hali hech narsa saqlanmagan. Kartochkada 🔖 Saqlash tugmasini bosing.');
 }
 
-function toggleSave(id, btn) {
-  saved.has(id) ? saved.delete(id) : saved.add(id);
-  const isSaved = saved.has(id);
-  btn.className = 'save-btn' + (isSaved ? ' saved' : '');
-  btn.innerHTML = `<i class="ti ${isSaved ? 'ti-bookmark-filled' : 'ti-bookmark'}"></i> ${isSaved ? 'Saqlangan' : 'Saqlash'}`;
-  // Refresh saved page if open
-  if (document.getElementById('page-saved').classList.contains('active')) renderSavedFeed();
-}
-
-// ---- INIT ----
-renderHome();
-renderSearchFeed();
+// ===== AUTO LOGIN =====
+window.onload = () => {
+  const saved_user = localStorage.getItem('ohub_user');
+  if (saved_user) {
+    try {
+      currentUser = JSON.parse(saved_user);
+      showApp();
+    } catch(e) { localStorage.removeItem('ohub_user'); }
+  }
+};
 </script>
 </body>
 </html>
