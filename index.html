@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getAuth, signInWithRedirect, getRedirectResult, GoogleAuthProvider, GithubAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyANfaZk5qsooxuG-LGo9pecR3rMxoaW-JQ",
@@ -20,6 +20,26 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+
+// Redirect natijasini tekshir
+getRedirectResult(auth).then((result) => {
+  document.getElementById('loginLoadingOverlay').style.display = 'none';
+  if (result && result.user) {
+    const user = result.user;
+    window.currentUser = {
+      name: user.displayName || user.email.split('@')[0],
+      email: user.email,
+      provider: user.providerData[0]?.providerId || 'unknown',
+      avatar: user.photoURL
+    };
+    localStorage.setItem('ohub_user', JSON.stringify(window.currentUser));
+    if (typeof showApp === 'function') showApp();
+  }
+}).catch((e) => {
+  document.getElementById('loginLoadingOverlay').style.display = 'none';
+  document.getElementById('loginError').textContent = "Xatolik: " + e.message;
+  document.getElementById('loginError').style.display = 'block';
+});
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -35,20 +55,11 @@ onAuthStateChanged(auth, (user) => {
 });
 
 window.firebaseLoginWith = async function(provider) {
-  try {
-    document.getElementById('loginError').style.display = 'none';
-    document.getElementById('loginLoadingOverlay').style.display = 'flex';
-    const p = provider === 'google' ? new GoogleAuthProvider() : new GithubAuthProvider();
-    await signInWithPopup(auth, p);
-  } catch(e) {
-    document.getElementById('loginLoadingOverlay').style.display = 'none';
-    let msg = "Xatolik yuz berdi. Qayta urinib ko'ring.";
-    if (e.code === 'auth/popup-closed-by-user') msg = "Oyna yopildi. Qayta bosing.";
-    if (e.code === 'auth/account-exists-with-different-credential') msg = "Bu email boshqa usulda ro'yxatdan o'tgan.";
-    if (e.code === 'auth/popup-blocked') msg = "Popup bloklandi. Brauzer ruxsat bering.";
-    document.getElementById('loginError').textContent = msg;
-    document.getElementById('loginError').style.display = 'block';
-  }
+  document.getElementById('loginError').style.display = 'none';
+  document.getElementById('loginLoadingOverlay').style.display = 'flex';
+  localStorage.setItem('ohub_login_pending', provider);
+  const p = provider === 'google' ? new GoogleAuthProvider() : new GithubAuthProvider();
+  await signInWithRedirect(auth, p);
 };
 
 window.firebaseLogout = async function() {
@@ -886,3 +897,4 @@ window.onload = () => {
 </script>
 </body>
 </html>
+
