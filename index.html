@@ -182,6 +182,40 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .nav-item span{font-size:10px;font-weight:500}
 .nav-dot{position:absolute;top:4px;right:10px;width:8px;height:8px;border-radius:50%;background:#E24B4A;border:2px solid #fff}
 
+/* DETAIL PAGE */
+.detail-page{position:fixed;inset:0;background:#f5f5f0;z-index:150;display:none;flex-direction:column;overflow-y:auto}
+.detail-page.open{display:flex}
+.detail-hero{background:linear-gradient(135deg,#0f2a4a 0%,#185FA5 60%,#1a8abf 100%);padding:1.25rem 1.5rem 2rem;color:#fff;position:relative}
+.detail-back{background:rgba(255,255,255,0.15);border:none;border-radius:10px;padding:8px 14px;color:#fff;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:6px;margin-bottom:1.25rem;backdrop-filter:blur(10px)}
+.detail-back i{font-size:16px}
+.detail-badge-row{display:flex;gap:7px;margin-bottom:0.75rem;flex-wrap:wrap}
+.detail-badge{font-size:11px;font-weight:600;padding:4px 11px;border-radius:20px;background:rgba(255,255,255,0.2);color:#fff}
+.detail-title{font-size:22px;font-weight:700;line-height:1.25;margin-bottom:0.5rem}
+.detail-org{font-size:13px;color:rgba(255,255,255,0.75);display:flex;align-items:center;gap:5px}
+.detail-body{padding:1.25rem 1.5rem;flex:1}
+.detail-card{background:#fff;border:1px solid #e5e5e0;border-radius:14px;padding:1.1rem;margin-bottom:1rem}
+.detail-card-title{font-size:11px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.75rem}
+.detail-info-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #f0f0ea}
+.detail-info-row:last-child{border-bottom:none}
+.detail-info-icon{width:30px;height:30px;border-radius:8px;background:#E6F1FB;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.detail-info-icon i{font-size:15px;color:#185FA5}
+.detail-info-label{font-size:11px;color:#aaa;margin-bottom:1px}
+.detail-info-val{font-size:13px;font-weight:500;color:#1a1a18}
+.detail-desc{font-size:14px;color:#444;line-height:1.65}
+.detail-apply-btn{display:block;width:100%;padding:14px;border-radius:12px;border:none;background:#185FA5;color:#fff;font-size:15px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;margin-top:0.5rem;transition:background 0.15s}
+.detail-apply-btn:hover{background:#0C447C}
+.detail-save-row{display:flex;gap:8px;margin-top:0.75rem}
+.detail-save-big{flex:1;padding:12px;border-radius:12px;border:1.5px solid #d0d0c8;background:#fff;color:#555;font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:all 0.15s}
+.detail-save-big:hover,.detail-save-big.saved{border-color:#185FA5;color:#185FA5;background:#EFF6FF}
+.detail-share-btn{padding:12px 16px;border-radius:12px;border:1.5px solid #d0d0c8;background:#fff;color:#555;cursor:pointer;display:flex;align-items:center;gap:6px;font-size:14px;transition:all 0.15s}
+.detail-share-btn:hover{border-color:#185FA5;color:#185FA5}
+.deadline-banner{background:#FCEBEB;border:1px solid #F5C0C0;border-radius:12px;padding:0.85rem 1.1rem;display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+.deadline-banner.ok{background:#E6F1FB;border-color:#B5D4F4}
+.deadline-banner i{font-size:20px;color:#791F1F;flex-shrink:0}
+.deadline-banner.ok i{color:#0C447C}
+.deadline-banner-text{font-size:13px;color:#791F1F;font-weight:500}
+.deadline-banner.ok .deadline-banner-text{color:#0C447C}
+
 /* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;display:none;align-items:flex-end;justify-content:center}
 .modal-overlay.open{display:flex}
@@ -439,6 +473,62 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 </div><!-- /mainApp -->
 
+<!-- DETAIL PAGE -->
+<div id="detailPage" class="detail-page">
+  <div class="detail-hero">
+    <button class="detail-back" onclick="closeDetail()"><i class="ti ti-arrow-left"></i> Orqaga</button>
+    <div class="detail-badge-row">
+      <span class="detail-badge" id="detailBadge">—</span>
+      <span class="detail-badge" id="detailFree" style="background:rgba(58,180,100,0.3);display:none">Bepul</span>
+    </div>
+    <div class="detail-title" id="detailTitle">—</div>
+    <div class="detail-org"><i class="ti ti-building"></i> <span id="detailOrg">—</span></div>
+  </div>
+  <div class="detail-body">
+    <div id="detailDeadlineBanner" class="deadline-banner">
+      <i class="ti ti-alarm"></i>
+      <div class="deadline-banner-text" id="detailDeadlineText">—</div>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-title">Ma'lumot</div>
+      <div class="detail-info-row">
+        <div class="detail-info-icon"><i class="ti ti-map-pin"></i></div>
+        <div><div class="detail-info-label">Joylashuv</div><div class="detail-info-val" id="detailLoc">—</div></div>
+      </div>
+      <div class="detail-info-row">
+        <div class="detail-info-icon"><i class="ti ti-clock"></i></div>
+        <div><div class="detail-info-label">Muddat</div><div class="detail-info-val" id="detailDeadline">—</div></div>
+      </div>
+      <div class="detail-info-row">
+        <div class="detail-info-icon"><i class="ti ti-users"></i></div>
+        <div><div class="detail-info-label">Tashkilotchi</div><div class="detail-info-val" id="detailOrg2">—</div></div>
+      </div>
+      <div class="detail-info-row">
+        <div class="detail-info-icon"><i class="ti ti-tag"></i></div>
+        <div><div class="detail-info-label">Turi</div><div class="detail-info-val" id="detailType">—</div></div>
+      </div>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-title">Tavsif</div>
+      <div class="detail-desc" id="detailDesc">—</div>
+    </div>
+
+    <a id="detailApplyBtn" href="#" target="_blank" class="detail-apply-btn">
+      <i class="ti ti-external-link" style="margin-right:6px"></i> Ariza topshirish
+    </a>
+    <div class="detail-save-row">
+      <button class="detail-save-big" id="detailSaveBtn" onclick="toggleDetailSave()">
+        <i class="ti ti-bookmark" id="detailSaveIcon"></i> <span id="detailSaveText">Saqlash</span>
+      </button>
+      <button class="detail-share-btn" onclick="shareDetail()">
+        <i class="ti ti-share"></i> Ulashish
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
   <div class="modal">
@@ -551,9 +641,11 @@ function goSearchWith() {
 }
 
 // ===== CARDS =====
+let currentDetailId = null;
+
 function cardHTML(d) {
   const isSaved = saved.has(d.id);
-  return `<div class="card">
+  return `<div class="card" onclick="openDetail(${d.id})">
     <div class="card-icon ${d.iconClass}"><i class="ti ${d.icon}"></i></div>
     <div class="card-body">
       <div class="card-top">
@@ -568,13 +660,97 @@ function cardHTML(d) {
       </div>
       <div class="card-footer">
         <span class="deadline-pill ${d.hot ? 'deadline-hot' : 'deadline-ok'}"><i class="ti ti-clock"></i>${d.deadline}</span>
-        <button class="save-btn ${isSaved ? 'saved' : ''}" onclick="toggleSave(${d.id},this)">
+        <button class="save-btn ${isSaved ? 'saved' : ''}" onclick="event.stopPropagation();toggleSave(${d.id},this)">
           <i class="ti ${isSaved ? 'ti-bookmark-filled' : 'ti-bookmark'}"></i>
           ${isSaved ? 'Saqlangan' : 'Saqlash'}
         </button>
       </div>
     </div>
   </div>`;
+}
+
+const DETAIL_LINKS = {
+  1: 'https://itpark.uz',
+  2: 'https://cs50.harvard.edu/x/',
+  3: 'https://www.daad.de',
+  4: 'https://codingcompetitions.withgoogle.com/codejam',
+  5: 'https://uzum.uz',
+  6: 'https://www.undp.org/uzbekistan',
+  7: 'https://practicum.yandex.ru',
+  8: 'https://yoshlar.gov.uz',
+};
+
+const TYPE_LABELS = {
+  hackathon:'Hackathon',contest:'Tanlov',course:'Kurs',grant:'Grant',job:'Stajyorlik'
+};
+
+function openDetail(id) {
+  const d = DATA.find(x => x.id === id);
+  if (!d) return;
+  currentDetailId = id;
+
+  document.getElementById('detailTitle').textContent = d.title;
+  document.getElementById('detailBadge').textContent = d.badge;
+  document.getElementById('detailOrg').textContent = d.org;
+  document.getElementById('detailOrg2').textContent = d.org;
+  document.getElementById('detailLoc').textContent = d.loc;
+  document.getElementById('detailDeadline').textContent = d.deadline;
+  document.getElementById('detailType').textContent = TYPE_LABELS[d.type] || d.badge;
+  document.getElementById('detailDesc').textContent = d.desc;
+
+  const freeEl = document.getElementById('detailFree');
+  freeEl.style.display = d.free ? 'inline-block' : 'none';
+
+  const banner = document.getElementById('detailDeadlineBanner');
+  const bannerText = document.getElementById('detailDeadlineText');
+  if (d.hot) {
+    banner.className = 'deadline-banner';
+    banner.querySelector('i').className = 'ti ti-alarm';
+    bannerText.textContent = '⚠️ Muddati yaqin: ' + d.deadline;
+  } else {
+    banner.className = 'deadline-banner ok';
+    banner.querySelector('i').className = 'ti ti-clock';
+    bannerText.textContent = 'Muddat: ' + d.deadline;
+  }
+
+  const applyBtn = document.getElementById('detailApplyBtn');
+  applyBtn.href = DETAIL_LINKS[id] || '#';
+
+  updateDetailSaveBtn();
+  document.getElementById('detailPage').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDetail() {
+  document.getElementById('detailPage').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function updateDetailSaveBtn() {
+  const isSaved = saved.has(currentDetailId);
+  document.getElementById('detailSaveBtn').className = 'detail-save-big' + (isSaved ? ' saved' : '');
+  document.getElementById('detailSaveIcon').className = 'ti ' + (isSaved ? 'ti-bookmark-filled' : 'ti-bookmark');
+  document.getElementById('detailSaveText').textContent = isSaved ? 'Saqlangan' : 'Saqlash';
+}
+
+function toggleDetailSave() {
+  if (!currentDetailId) return;
+  saved.has(currentDetailId) ? saved.delete(currentDetailId) : saved.add(currentDetailId);
+  updateDetailSaveBtn();
+  document.getElementById('pSaved').textContent = saved.size;
+  renderHome();
+  renderSearchFeed();
+}
+
+function shareDetail() {
+  const d = DATA.find(x => x.id === currentDetailId);
+  if (!d) return;
+  if (navigator.share) {
+    navigator.share({title: d.title, text: d.desc, url: DETAIL_LINKS[currentDetailId] || location.href});
+  } else {
+    const text = d.title + '\n' + d.desc + '\n' + (DETAIL_LINKS[currentDetailId] || '');
+    navigator.clipboard.writeText(text).then(() => alert('Nusxalandi! ✅'));
+  }
 }
 
 function emptyHTML(txt) {
