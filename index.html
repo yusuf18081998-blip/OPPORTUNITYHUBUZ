@@ -27,6 +27,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 .search-bar input:focus { border-color: #185FA5; background: #fff; }
 .search-bar button { padding: 0 20px; height: 44px; border-radius: 10px; border: none; background: #185FA5; color: #fff; font-size: 14px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: background 0.15s; }
 .search-bar button:hover { background: #0C447C; }
+.tg-btn { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; padding: 0 20px; height: 44px; border-radius: 10px; background: #229ED9; color: #fff; font-size: 14px; font-weight: 500; text-decoration: none; transition: background 0.15s; }
+.tg-btn:hover { background: #1a8abf; }
+.tg-btn i { font-size: 20px; }
 .stats-row { display: flex; gap: 2rem; margin-top: 1.25rem; flex-wrap: wrap; }
 .stat-num { font-size: 22px; font-weight: 700; color: #185FA5; }
 .stat-label { font-size: 12px; color: #999; margin-top: 1px; }
@@ -34,6 +37,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 /* FILTERS */
 .filters { display: flex; gap: 8px; padding: 0.9rem 1.5rem; overflow-x: auto; border-bottom: 1px solid #e5e5e0; background: #fff; flex-wrap: wrap; }
 .filter-chip { padding: 7px 15px; border-radius: 20px; border: 1px solid #d0d0c8; font-size: 13px; color: #555; cursor: pointer; white-space: nowrap; background: #fafaf8; transition: all 0.15s; user-select: none; }
+.filter-chip i { pointer-events: none; }
 .filter-chip.active { background: #185FA5; color: #fff; border-color: #185FA5; }
 .filter-chip:hover:not(.active) { border-color: #185FA5; color: #185FA5; }
 
@@ -145,10 +149,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 .nav-bottom { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e5e5e0; display: flex; justify-content: space-around; padding: 8px 0 max(4px, env(safe-area-inset-bottom)); z-index: 100; }
 .nav-item { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 16px; cursor: pointer; color: #aaa; transition: color 0.15s; user-select: none; }
 .nav-item.active { color: #185FA5; }
-.nav-item i { font-size: 23px; }
-.nav-item span { font-size: 10px; font-weight: 500; }
+.nav-item i { font-size: 23px; pointer-events: none; }
+.nav-item span { font-size: 10px; font-weight: 500; pointer-events: none; }
 .nav-badge { position: relative; }
-.nav-badge::after { content: '3'; position: absolute; top: -4px; right: -6px; background: #E24B4A; color: #fff; font-size: 9px; font-weight: 700; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; line-height: 16px; text-align: center; }
+.nav-badge::after { content: "3"; position: absolute; top: -4px; right: -6px; background: #E24B4A; color: #fff; font-size: 9px; font-weight: 700; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; line-height: 16px; text-align: center; }
 </style>
 </head>
 <body>
@@ -166,6 +170,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <input type="text" id="homeSearch" placeholder="Kurs, hackathon, grant..." />
       <button onclick="goSearchWith()"><i class="ti ti-search"></i> Qidirish</button>
     </div>
+    <a href="https://t.me/opportunityhub_uz_bot" target="_blank" class="tg-btn"><i class="ti ti-brand-telegram"></i> Telegram botda ochish</a>
     <div class="stats-row">
       <div><div class="stat-num">247</div><div class="stat-label">Faol imkoniyat</div></div>
       <div><div class="stat-num">12,400+</div><div class="stat-label">Foydalanuvchi</div></div>
@@ -335,7 +340,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <i class="ti ti-bookmark"></i><span>Saqlangan</span>
   </div>
   <div class="nav-item" id="nav-notif" onclick="goPage('notif')">
-    <div class="nav-badge"><i class="ti ti-bell"></i></div><span>Bildirishnoma</span>
+    <i class="ti ti-bell nav-badge"></i><span>Bildirishnoma</span>
   </div>
   <div class="nav-item" id="nav-profile" onclick="goPage('profile')">
     <i class="ti ti-user"></i><span>Profil</span>
