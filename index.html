@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpportunityHub UZ</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f0; color: #1a1a18; min-height: 100vh; }
+
+/* HERO */
+.hero { padding: 2rem 1.5rem 1.75rem; background: #fff; border-bottom: 1px solid #e5e5e0; }
+.logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
+.logo-badge { width: 38px; height: 38px; border-radius: 10px; background: #185FA5; display: flex; align-items: center; justify-content: center; }
+.logo-badge i { color: #fff; font-size: 20px; }
+.site-name { font-size: 19px; font-weight: 600; color: #1a1a18; }
+.site-name span { color: #185FA5; }
+.tagline { font-size: 26px; font-weight: 700; color: #1a1a18; line-height: 1.25; margin-bottom: 0.4rem; }
+.sub { font-size: 14px; color: #666; margin-bottom: 1.25rem; }
+
+.search-bar { display: flex; gap: 8px; }
+.search-bar input { flex: 1; padding: 0 14px; height: 44px; border: 1px solid #d0d0c8; border-radius: 10px; font-size: 14px; background: #fafaf8; color: #1a1a18; outline: none; transition: border-color 0.2s; }
+.search-bar input:focus { border-color: #185FA5; background: #fff; }
+.search-bar button { padding: 0 20px; height: 44px; border-radius: 10px; border: none; background: #185FA5; color: #fff; font-size: 14px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: background 0.15s; }
+.search-bar button:hover { background: #0C447C; }
+
+.stats-row { display: flex; gap: 2rem; margin-top: 1.25rem; flex-wrap: wrap; }
+.stat-num { font-size: 22px; font-weight: 700; color: #185FA5; }
+.stat-label { font-size: 12px; color: #999; margin-top: 1px; }
+
+/* FILTERS */
+.filters { display: flex; gap: 8px; padding: 0.9rem 1.5rem; overflow-x: auto; border-bottom: 1px solid #e5e5e0; background: #fff; flex-wrap: wrap; }
+.filter-chip { padding: 7px 15px; border-radius: 20px; border: 1px solid #d0d0c8; font-size: 13px; color: #555; cursor: pointer; white-space: nowrap; background: #fafaf8; transition: all 0.15s; user-select: none; }
+.filter-chip.active { background: #185FA5; color: #fff; border-color: #185FA5; }
+.filter-chip:hover:not(.active) { border-color: #185FA5; color: #185FA5; }
+
+/* AI BAR */
+.ai-bar { margin: 1rem 1.5rem; background: #EFF6FF; border: 1px solid #B5D4F4; border-radius: 12px; padding: 1rem 1.25rem; display: flex; gap: 12px; align-items: flex-start; }
+.ai-icon { width: 34px; height: 34px; border-radius: 8px; background: #185FA5; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.ai-icon i { color: #fff; font-size: 16px; }
+.ai-label { font-size: 11px; color: #185FA5; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 4px; }
+.ai-text { font-size: 13px; color: #1a1a18; line-height: 1.5; }
+.ai-tags { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+.ai-tag { font-size: 12px; padding: 4px 11px; border-radius: 20px; background: #fff; border: 1px solid #B5D4F4; color: #185FA5; cursor: pointer; transition: all 0.15s; }
+.ai-tag:hover { background: #185FA5; color: #fff; }
+
+/* NOTIF */
+.notif-banner { margin: 0 1.5rem 0.5rem; padding: 10px 14px; background: #EAF3DE; border: 1px solid #C0DD97; border-radius: 10px; display: flex; align-items: center; gap: 10px; }
+.notif-banner i { color: #3B6D11; font-size: 17px; }
+.notif-text { font-size: 13px; color: #27500A; flex: 1; }
+.notif-close { background: none; border: none; cursor: pointer; color: #3B6D11; font-size: 18px; line-height: 1; }
+
+/* CARDS */
+.section-title { font-size: 12px; font-weight: 600; color: #999; text-transform: uppercase; letter-spacing: 0.07em; padding: 0 1.5rem; margin: 0.75rem 0 0.25rem; }
+.feed { padding: 0.5rem 1.5rem 5rem; display: flex; flex-direction: column; gap: 12px; }
+.card { background: #fff; border: 1px solid #e5e5e0; border-radius: 12px; padding: 1rem 1.25rem; display: flex; gap: 14px; align-items: flex-start; transition: border-color 0.15s, box-shadow 0.15s; }
+.card:hover { border-color: #185FA5; box-shadow: 0 2px 12px rgba(24,95,165,0.08); }
+.card-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.card-icon i { font-size: 22px; }
+
+.ic-hackathon { background: #E6F1FB; } .ic-hackathon i { color: #185FA5; }
+.ic-course   { background: #EAF3DE; } .ic-course i   { color: #3B6D11; }
+.ic-contest  { background: #FAEEDA; } .ic-contest i  { color: #854F0B; }
+.ic-grant    { background: #EEEDFE; } .ic-grant i    { color: #3C3489; }
+.ic-job      { background: #E1F5EE; } .ic-job i      { color: #085041; }
+
+.card-body { flex: 1; min-width: 0; }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 4px; }
+.card-title { font-size: 15px; font-weight: 600; color: #1a1a18; line-height: 1.3; }
+.badge { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
+.badge-hack    { background: #E6F1FB; color: #0C447C; }
+.badge-course  { background: #EAF3DE; color: #27500A; }
+.badge-contest { background: #FAEEDA; color: #633806; }
+.badge-grant   { background: #EEEDFE; color: #3C3489; }
+.badge-job     { background: #E1F5EE; color: #085041; }
+.badge-free    { background: #EAF3DE; color: #27500A; }
+
+.card-desc { font-size: 13px; color: #555; margin-bottom: 8px; line-height: 1.55; }
+.card-meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.meta-item { font-size: 12px; color: #999; display: flex; align-items: center; gap: 4px; }
+.meta-item i { font-size: 13px; }
+.card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+.deadline-pill { font-size: 12px; font-weight: 500; padding: 4px 11px; border-radius: 20px; display: flex; align-items: center; gap: 4px; }
+.deadline-hot { background: #FCEBEB; color: #791F1F; }
+.deadline-ok  { background: #E6F1FB; color: #0C447C; }
+.save-btn { background: none; border: 1px solid #d0d0c8; border-radius: 8px; padding: 5px 12px; font-size: 12px; color: #555; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: all 0.15s; }
+.save-btn:hover { border-color: #185FA5; color: #185FA5; }
+.save-btn.saved { background: #E6F1FB; border-color: #185FA5; color: #185FA5; }
+
+/* EMPTY STATE */
+.empty { padding: 3rem 1.5rem; text-align: center; color: #999; }
+.empty i { font-size: 40px; display: block; margin-bottom: 12px; }
+.empty p { font-size: 14px; }
+
+/* BOTTOM NAV */
+.nav-bottom { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e5e5e0; display: flex; justify-content: space-around; padding: 8px 0 max(4px, env(safe-area-inset-bottom)); z-index: 100; }
+.nav-item { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 16px; cursor: pointer; color: #aaa; transition: color 0.15s; }
+.nav-item.active { color: #185FA5; }
+.nav-item i { font-size: 23px; }
+.nav-item span { font-size: 10px; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="logo-row">
+    <div class="logo-badge"><i class="ti ti-bolt"></i></div>
+    <div class="site-name">Opportunity<span>Hub</span> UZ</div>
+  </div>
+  <div class="tagline">Barcha imkoniyatlar —<br>bir joyda</div>
+  <div class="sub">Bepul kurslar, hackathonlar, tanlovlar va grantlar — o'z vaqtida</div>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Kurs, hackathon, grant qidiring..." />
+    <button onclick="doSearch()"><i class="ti ti-search"></i> Qidirish</button>
+  </div>
+  <div class="stats-row">
+    <div><div class="stat-num" id="sCount">247</div><div class="stat-label">Faol imkoniyat</div></div>
+    <div><div class="stat-num">12,400+</div><div class="stat-label">Foydalanuvchi</div></div>
+    <div><div class="stat-num">38</div><div class="stat-label">Yangi bugun</div></div>
+  </div>
+</div>
+
+<!-- NOTIFICATION -->
+<div class="notif-banner" id="notifBanner" style="margin-top:1rem">
+  <i class="ti ti-bell"></i>
+  <span class="notif-text">Bildirishnomalar yoqildi! Yangi imkoniyatlar haqida darhol xabar olasiz.</span>
+  <button class="notif-close" onclick="document.getElementById('notifBanner').style.display='none'"><i class="ti ti-x"></i></button>
+</div>
+
+<!-- FILTERS -->
+<div class="filters">
+  <span class="filter-chip active" onclick="filterCards('all',this)"><i class="ti ti-apps" style="font-size:13px;margin-right:3px"></i> Barchasi</span>
+  <span class="filter-chip" onclick="filterCards('hackathon',this)"><i class="ti ti-code" style="font-size:13px;margin-right:3px"></i> Hackathon</span>
+  <span class="filter-chip" onclick="filterCards('course',this)"><i class="ti ti-book" style="font-size:13px;margin-right:3px"></i> Kurs</span>
+  <span class="filter-chip" onclick="filterCards('contest',this)"><i class="ti ti-trophy" style="font-size:13px;margin-right:3px"></i> Tanlov</span>
+  <span class="filter-chip" onclick="filterCards('grant',this)"><i class="ti ti-moneybag" style="font-size:13px;margin-right:3px"></i> Grant</span>
+  <span class="filter-chip" onclick="filterCards('job',this)"><i class="ti ti-briefcase" style="font-size:13px;margin-right:3px"></i> Ish/Stajyorlik</span>
+</div>
+
+<!-- AI BAR -->
+<div class="ai-bar">
+  <div class="ai-icon"><i class="ti ti-brain"></i></div>
+  <div>
+    <div class="ai-label">AI TAVSIYA</div>
+    <div class="ai-text">Siz uchun eng mos imkoniyatlar: <strong>IT sohasida 3 ta hackathon</strong> va <strong>2 ta bepul kurs</strong> topildi. Ariza muddati yaqinlashmoqda!</div>
+    <div class="ai-tags">
+      <span class="ai-tag" onclick="filterCards('hackathon',null)">Hackathonlar</span>
+      <span class="ai-tag" onclick="filterCards('course',null)">Bepul kurslar</span>
+      <span class="ai-tag" onclick="filterCards('grant',null)">Grantlar</span>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">Tezkor imkoniyatlar</div>
+<div class="feed" id="cardFeed"></div>
+
+<!-- BOTTOM NAV -->
+<div class="nav-bottom">
+  <div class="nav-item active"><i class="ti ti-home"></i><span>Asosiy</span></div>
+  <div class="nav-item"><i class="ti ti-search"></i><span>Qidirish</span></div>
+  <div class="nav-item"><i class="ti ti-bookmark"></i><span>Saqlangan</span></div>
+  <div class="nav-item"><i class="ti ti-bell"></i><span>Bildirishnoma</span></div>
+  <div class="nav-item"><i class="ti ti-user"></i><span>Profil</span></div>
+</div>
+
+<script>
+const DATA = [
+  { id:1, type:'hackathon', title:'UzHack 2026 — Milliy Hackathon', desc:'O\'zbekiston yoshlari uchun eng katta hackathon. Sovrin jamg\'armasi: 50,000,000 so\'m. Barcha yo\'nalishlar: AI, FinTech, EdTech.', org:'IT Park Uzbekistan', loc:'Toshkent / Online', deadline:'3 kun qoldi', hot:true, free:true, icon:'ti-code', iconClass:'ic-hackathon', badge:'Hackathon', badgeClass:'badge-hack' },
+  { id:2, type:'course', title:'CS50x — Harvard bepul kursi', desc:'Kompyuter fanlari asoslari. Sertifikat bilan. O\'zbek tilidagi mentorlar mavjud. Har oy yangi to\'lqin boshlanadi.', org:'Harvard / edX', loc:'Online', deadline:'12 kun qoldi', hot:false, free:true, icon:'ti-book', iconClass:'ic-course', badge:'Bepul Kurs', badgeClass:'badge-course' },
+  { id:3, type:'grant', title:'DAAD Stipendiyasi — Germaniya', desc:'Bakalavriat va magistratura o\'qish uchun to\'liq grant. Yashash harajatlari va uchish xarajatlari to\'liq qoplangan.', org:'DAAD', loc:'Germaniya', deadline:'18 kun qoldi', hot:false, free:true, icon:'ti-star', iconClass:'ic-grant', badge:'Grant', badgeClass:'badge-grant' },
+  { id:4, type:'contest', title:'Google Code Jam 2026', desc:'Dunyo miqyosidagi dasturlash musobaqasi. $15,000 grand-prize. Barcha yoshlar uchun ochiq, ro\'yxatdan o\'tish bepul.', org:'Google', loc:'Online', deadline:'5 kun qoldi', hot:true, free:true, icon:'ti-trophy', iconClass:'ic-contest', badge:'Tanlov', badgeClass:'badge-contest' },
+  { id:5, type:'job', title:'Frontend Intern — Uzum Market', desc:'3 oylik to\'lov qilinadigan stajyorlik. React.js bilan ishlash tajribasi talab etilmaydi. Mentorlik va to\'liq asbob-uskunalar bilan.', org:'Uzum Market', loc:'Toshkent', deadline:'7 kun qoldi', hot:false, free:false, icon:'ti-briefcase', iconClass:'ic-job', badge:'Stajyorlik', badgeClass:'badge-job' },
+  { id:6, type:'hackathon', title:'AI Youth Hackathon — UNDP', desc:'Sun\'iy intellekt yechimlar orqali ijtimoiy muammolarni hal qilish. $5,000 sovrin. Jamoaviy ishtirok (2-4 kishi).', org:'UNDP Uzbekistan', loc:'Toshkent', deadline:'2 kun qoldi', hot:true, free:true, icon:'ti-robot', iconClass:'ic-hackathon', badge:'Hackathon', badgeClass:'badge-hack' },
+  { id:7, type:'course', title:'Python bilan ma\'lumotlar tahlili', desc:'Coursera\'da Yandex va Google tomonidan bepul taqdim etilgan kurs. Amaliy loyihalar va sertifikat bilan yakunlanadi.', org:'Yandex / Coursera', loc:'Online', deadline:'Doimiy ochiq', hot:false, free:true, icon:'ti-chart-bar', iconClass:'ic-course', badge:'Bepul Kurs', badgeClass:'badge-course' },
+  { id:8, type:'grant', title:'Prezident yoshlar granti', desc:'Startaplar va ijodiy loyihalar uchun 100 million so\'mgacha grant. 18-35 yoshdagi O\'zbekiston fuqarolari uchun.', org:'Yoshlar Agentligi', loc:'O\'zbekiston', deadline:'25 kun qoldi', hot:false, free:true, icon:'ti-award', iconClass:'ic-grant', badge:'Grant', badgeClass:'badge-grant' },
+];
+
+let saved = new Set();
+let currentFilter = 'all';
+let searchQuery = '';
+
+function renderCards() {
+  const feed = document.getElementById('cardFeed');
+  const items = DATA.filter(d => {
+    const mf = currentFilter === 'all' || d.type === currentFilter;
+    const ms = !searchQuery || [d.title, d.desc, d.org].join(' ').toLowerCase().includes(searchQuery);
+    return mf && ms;
+  });
+  document.getElementById('sCount').textContent = items.length * 30 + 7;
+  if (!items.length) {
+    feed.innerHTML = '<div class="empty"><i class="ti ti-search-off"></i><p>Natija topilmadi. Qidiruvni o\'zgartiring.</p></div>';
+    return;
+  }
+  feed.innerHTML = items.map(d => `
+    <div class="card">
+      <div class="card-icon ${d.iconClass}"><i class="ti ${d.icon}"></i></div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-title">${d.title}</div>
+          <span class="badge ${d.badgeClass}">${d.badge}</span>
+        </div>
+        <div class="card-desc">${d.desc}</div>
+        <div class="card-meta">
+          <span class="meta-item"><i class="ti ti-building"></i>${d.org}</span>
+          <span class="meta-item"><i class="ti ti-map-pin"></i>${d.loc}</span>
+          ${d.free ? '<span class="badge badge-free">Bepul</span>' : ''}
+        </div>
+        <div class="card-footer">
+          <span class="deadline-pill ${d.hot ? 'deadline-hot' : 'deadline-ok'}"><i class="ti ti-clock"></i>${d.deadline}</span>
+          <button class="save-btn ${saved.has(d.id)?'saved':''}" onclick="toggleSave(${d.id},this)">
+            <i class="ti ${saved.has(d.id)?'ti-bookmark-filled':'ti-bookmark'}"></i>
+            ${saved.has(d.id)?'Saqlangan':'Saqlash'}
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleSave(id, btn) {
+  saved.has(id) ? saved.delete(id) : saved.add(id);
+  btn.className = 'save-btn' + (saved.has(id)?' saved':'');
+  btn.innerHTML = `<i class="ti ${saved.has(id)?'ti-bookmark-filled':'ti-bookmark'}"></i> ${saved.has(id)?'Saqlangan':'Saqlash'}`;
+}
+
+function filterCards(type, el) {
+  currentFilter = type;
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  if (el) el.classList.add('active');
+  renderCards();
+}
+
+function doSearch() {
+  searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+  renderCards();
+}
+
+document.getElementById('searchInput').addEventListener('keydown', e => { if(e.key==='Enter') doSearch(); });
+
+renderCards();
+</script>
+</body>
+</html>
